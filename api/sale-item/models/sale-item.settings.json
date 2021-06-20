@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sale_items",
+  "info": {
+    "name": "SaleItem"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}
