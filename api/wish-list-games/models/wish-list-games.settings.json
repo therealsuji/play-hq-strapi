@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wish_list_games",
+  "info": {
+    "name": "WishListGames",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "games.game"
+    }
+  }
+}

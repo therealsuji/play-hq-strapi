@@ -1,12 +1,12 @@
 {
   "paths": {
-    "/sale-items": {
+    "/wish-list-games": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the wish-list-games's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve wish-list-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "parameters": [
           {
@@ -195,10 +195,10 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new wish-list-games record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve wish-list-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "requestBody": {
           "description": "",
@@ -252,20 +252,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSale-item"
+                "$ref": "#/components/schemas/NewWish-list-games"
               }
             }
           }
         }
       }
     },
-    "/sale-items/count": {
+    "/wish-list-games/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of wish-list-games documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve wish-list-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -311,18 +311,18 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "parameters": []
       }
     },
-    "/sale-items/{id}": {
+    "/wish-list-games/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one wish-list-games record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve wish-list-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "parameters": [
           {
@@ -385,10 +385,10 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single wish-list-games record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve wish-list-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSale-item"
+                "$ref": "#/components/schemas/NewWish-list-games"
               }
             }
           }
@@ -462,10 +462,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single wish-list-games record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single wish-list-games based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Sale-item"
+          "Wish-list-games"
         ],
         "parameters": [
           {
@@ -527,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Sale-item": {
+      "Wish-list-games": {
         "required": [
           "id"
         ],
@@ -535,11 +535,38 @@
           "id": {
             "type": "string"
           },
-          "title": {
+          "user_id": {
             "type": "string"
           },
-          "location": {
-            "type": "string"
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "releaseDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platforms": {
+                  "type": "object"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -547,13 +574,40 @@
           }
         }
       },
-      "NewSale-item": {
+      "NewWish-list-games": {
         "properties": {
-          "title": {
+          "user_id": {
             "type": "string"
           },
-          "location": {
-            "type": "string"
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "releaseDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platforms": {
+                  "type": "object"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",

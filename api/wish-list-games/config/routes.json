@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/sale-items",
-      "handler": "sale-item.find",
+      "path": "/wish-list-games",
+      "handler": "wish-list-games.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/sale-items/count",
-      "handler": "sale-item.count",
+      "path": "/wish-list-games/count",
+      "handler": "wish-list-games.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/sale-items/:id",
-      "handler": "sale-item.findOne",
+      "path": "/wish-list-games/:id",
+      "handler": "wish-list-games.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/sale-items",
-      "handler": "sale-item.create",
+      "path": "/wish-list-games",
+      "handler": "wish-list-games.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/sale-items/:id",
-      "handler": "sale-item.update",
+      "path": "/wish-list-games/:id",
+      "handler": "wish-list-games.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/sale-items/:id",
-      "handler": "sale-item.delete",
+      "path": "/wish-list-games/:id",
+      "handler": "wish-list-games.delete",
       "config": {
         "policies": []
       }

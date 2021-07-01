@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_games_games",
+  "info": {
+    "name": "Game",
+    "icon": "gamepad"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "cover_image": {
+      "type": "string"
+    },
+    "box_image": {
+      "type": "string"
+    },
+    "platforms": {
+      "type": "json"
+    }
+  }
+}

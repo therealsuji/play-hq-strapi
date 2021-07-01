@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "sale_items",
+  "collectionName": "library_games",
   "info": {
-    "name": "SaleItem"
+    "name": "LibraryGames",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,11 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "user_id": {
       "type": "string"
     },
-    "location": {
-      "type": "string"
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "games.game"
     }
   }
 }

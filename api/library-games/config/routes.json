@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/library-games",
+      "handler": "library-games.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/library-games/count",
+      "handler": "library-games.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/library-games/:id",
+      "handler": "library-games.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/library-games",
+      "handler": "library-games.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/library-games/:id",
+      "handler": "library-games.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/library-games/:id",
+      "handler": "library-games.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
