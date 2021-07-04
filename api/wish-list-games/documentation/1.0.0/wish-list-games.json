@@ -535,9 +535,6 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -567,6 +564,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -576,9 +576,6 @@
       },
       "NewWish-list-games": {
         "properties": {
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -608,6 +605,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",

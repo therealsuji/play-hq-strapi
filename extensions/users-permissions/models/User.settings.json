@@ -58,6 +58,12 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "location": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
     }
   }
 }

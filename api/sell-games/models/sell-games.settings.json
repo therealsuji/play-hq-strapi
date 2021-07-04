@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sell_games",
+  "info": {
+    "name": "SellGames",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "float"
+    },
+    "location": {
+      "type": "string"
+    },
+    "remarks": {
+      "type": "text"
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "MINT_SEALED",
+        "VERY_NEW",
+        "KINDA_USED",
+        "PLAYABLE"
+      ]
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "COMPLETED",
+        "CANCELLED",
+        "NOT_COMPLETE",
+        "DISPATCHED"
+      ]
+    },
+    "game_ids": {
+      "type": "json"
+    },
+    "negotiable": {
+      "type": "boolean"
+    },
+    "platforms": {
+      "type": "json"
+    }
+  }
+}

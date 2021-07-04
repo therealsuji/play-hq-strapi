@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/01/2021 5:56:04 PM"
+    "x-generation-date": "07/05/2021 1:16:26 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -569,19 +569,20 @@
         ]
       }
     },
-    "/orders": {
+    "/sell-games": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the sell-games's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Order"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -620,7 +621,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Sell-games"
         ],
         "parameters": [
           {
@@ -763,79 +764,16 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new sell-games record",
         "responses": {
           "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewOrder"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/orders/count": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
+            "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "count": {
-                      "type": "integer"
+                    "foo": {
+                      "type": "string"
                     }
                   }
                 }
@@ -875,22 +813,36 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Sell-games"
         ],
-        "parameters": []
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSell-games"
+              }
+            }
+          }
+        }
       }
     },
-    "/orders/{id}": {
+    "/sell-games/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of sell-games documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Order"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -928,7 +880,64 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Sell-games"
+        ],
+        "parameters": []
+      }
+    },
+    "/sell-games/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one sell-games record",
+        "responses": {
+          "200": {
+            "description": "Retrieve sell-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sell-games"
         ],
         "parameters": [
           {
@@ -945,14 +954,18 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single sell-games record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Order"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -990,7 +1003,7 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Sell-games"
         ],
         "requestBody": {
           "description": "",
@@ -998,7 +1011,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOrder"
+                "$ref": "#/components/schemas/NewSell-games"
               }
             }
           }
@@ -1018,10 +1031,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single sell-games record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single sell-games based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -1064,7 +1077,531 @@
         },
         "summary": "",
         "tags": [
-          "Order"
+          "Sell-games"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/trade-games": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the trade-games's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve trade-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new trade-games record",
+        "responses": {
+          "200": {
+            "description": "Retrieve trade-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTrade-games"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trade-games/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of trade-games documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve trade-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
+        ],
+        "parameters": []
+      }
+    },
+    "/trade-games/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one trade-games record",
+        "responses": {
+          "200": {
+            "description": "Retrieve trade-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single trade-games record",
+        "responses": {
+          "200": {
+            "description": "Retrieve trade-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTrade-games"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single trade-games record",
+        "responses": {
+          "200": {
+            "description": "deletes a single trade-games based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Trade-games"
         ],
         "parameters": [
           {
@@ -3841,9 +4378,6 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -3873,6 +4407,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -3882,9 +4419,6 @@
       },
       "NewLibrary-games": {
         "properties": {
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -3914,6 +4448,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -3927,7 +4464,7 @@
           }
         }
       },
-      "Order": {
+      "Sell-games": {
         "required": [
           "id"
         ],
@@ -3936,7 +4473,43 @@
             "type": "string"
           },
           "user_id": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "location": {
             "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "MINT_SEALED",
+              "VERY_NEW",
+              "KINDA_USED",
+              "PLAYABLE"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "COMPLETED",
+              "CANCELLED",
+              "NOT_COMPLETE",
+              "DISPATCHED"
+            ]
+          },
+          "game_ids": {
+            "type": "object"
+          },
+          "negotiable": {
+            "type": "boolean"
+          },
+          "platforms": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -3944,10 +4517,122 @@
           }
         }
       },
-      "NewOrder": {
+      "NewSell-games": {
         "properties": {
           "user_id": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "number"
+          },
+          "location": {
             "type": "string"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "MINT_SEALED",
+              "VERY_NEW",
+              "KINDA_USED",
+              "PLAYABLE"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "COMPLETED",
+              "CANCELLED",
+              "NOT_COMPLETE",
+              "DISPATCHED"
+            ]
+          },
+          "game_ids": {
+            "type": "object"
+          },
+          "negotiable": {
+            "type": "boolean"
+          },
+          "platforms": {
+            "type": "object"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Trade-games": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "game_id": {
+            "type": "integer"
+          },
+          "preferred_game_ids": {
+            "type": "object"
+          },
+          "platforms": {
+            "type": "object"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "COMPLETED",
+              "CANCELLED",
+              "NOT_COMPLETE",
+              "DISPATCHED"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewTrade-games": {
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "game_id": {
+            "type": "integer"
+          },
+          "preferred_game_ids": {
+            "type": "object"
+          },
+          "platforms": {
+            "type": "object"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "COMPLETED",
+              "CANCELLED",
+              "NOT_COMPLETE",
+              "DISPATCHED"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -3969,9 +4654,6 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -4001,6 +4683,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -4010,9 +4695,6 @@
       },
       "NewWish-list-games": {
         "properties": {
-          "user_id": {
-            "type": "string"
-          },
           "list": {
             "type": "array",
             "items": {
@@ -4042,6 +4724,9 @@
                 }
               }
             }
+          },
+          "user_id": {
+            "type": "integer"
           },
           "published_at": {
             "type": "string",
@@ -4152,6 +4837,12 @@
                   "type": "boolean"
                 },
                 "role": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "phone_number": {
                   "type": "string"
                 },
                 "created_by": {
@@ -4266,6 +4957,12 @@
                 "type": "string"
               }
             }
+          },
+          "location": {
+            "type": "string"
+          },
+          "phone_number": {
+            "type": "string"
           }
         }
       },
@@ -4308,6 +5005,12 @@
           "role": {
             "type": "string"
           },
+          "location": {
+            "type": "string"
+          },
+          "phone_number": {
+            "type": "string"
+          },
           "created_by": {
             "type": "string"
           },
@@ -4341,9 +5044,6 @@
     }
   },
   "tags": [
-    {
-      "name": "Order"
-    },
     {
       "name": "Email - Email"
     },

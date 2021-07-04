@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trade_games",
+  "info": {
+    "name": "TradeGames",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "game_id": {
+      "type": "integer"
+    },
+    "preferred_game_ids": {
+      "type": "json"
+    },
+    "platforms": {
+      "type": "json"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "COMPLETED",
+        "CANCELLED",
+        "NOT_COMPLETE",
+        "DISPATCHED"
+      ]
+    }
+  }
+}

@@ -1250,6 +1250,12 @@
                 "type": "string"
               }
             }
+          },
+          "location": {
+            "type": "string"
+          },
+          "phone_number": {
+            "type": "string"
           }
         }
       },
@@ -1290,6 +1296,12 @@
             "default": false
           },
           "role": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "phone_number": {
             "type": "string"
           },
           "created_by": {

@@ -12,13 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "string"
-    },
     "list": {
       "type": "component",
       "repeatable": true,
       "component": "games.game"
+    },
+    "user_id": {
+      "type": "integer",
+      "private": false
     }
   }
 }

@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/orders",
-      "handler": "order.find",
+      "path": "/trade-games",
+      "handler": "trade-games.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/orders/count",
-      "handler": "order.count",
+      "path": "/trade-games/count",
+      "handler": "trade-games.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/orders/:id",
-      "handler": "order.findOne",
+      "path": "/trade-games/:id",
+      "handler": "trade-games.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/orders",
-      "handler": "order.create",
+      "path": "/trade-games",
+      "handler": "trade-games.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/orders/:id",
-      "handler": "order.update",
+      "path": "/trade-games/:id",
+      "handler": "trade-games.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/orders/:id",
-      "handler": "order.delete",
+      "path": "/trade-games/:id",
+      "handler": "trade-games.delete",
       "config": {
         "policies": []
       }

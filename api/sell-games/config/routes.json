@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sell-games",
+      "handler": "sell-games.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sell-games/count",
+      "handler": "sell-games.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sell-games/:id",
+      "handler": "sell-games.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sell-games",
+      "handler": "sell-games.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sell-games/:id",
+      "handler": "sell-games.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sell-games/:id",
+      "handler": "sell-games.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
