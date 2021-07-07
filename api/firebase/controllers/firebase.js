@@ -1,77 +1,72 @@
-'use strict'
+"use strict";
 
-const { sanitizeEntity } = require('strapi-utils')
+const { sanitizeEntity } = require("strapi-utils");
 
-const sanitizeUser = user =>
+const sanitizeUser = (user) =>
   sanitizeEntity(user, {
-    model: strapi.query('user', 'users-permissions').model,
-  })
+    model: strapi.query("user", "users-permissions").model,
+  });
 
 module.exports = {
   async auth(ctx) {
     try {
-      const idToken = ctx.request.body.token
-      const decodedToken = await strapi.firebase
-        .auth()
-        .verifyIdToken(idToken)
+      const idToken = ctx.request.body.token;
+      const decodedToken = await strapi.firebase.auth().verifyIdToken(idToken);
       if (decodedToken.email) {
-        let jwt
-        let user = await strapi.plugins['users-permissions'].services.user.fetch({
+        let jwt;
+        let user = await strapi.plugins["users-permissions"].services.user.fetch({
           email: decodedToken.email,
-        })
+        });
         if (user) {
-          user = sanitizeUser(user)
+          user = sanitizeUser(user);
 
-          jwt = strapi.plugins['users-permissions'].services.jwt.issue({
+          jwt = strapi.plugins["users-permissions"].services.jwt.issue({
             id: user.id,
-          })
+          });
 
           ctx.body = {
             user,
-            jwt
-          }
+            jwt,
+          };
         } else {
           const pluginStore = await strapi.store({
-            environment: '',
-            type: 'plugin',
-            name: 'users-permissions',
-          })
+            environment: "",
+            type: "plugin",
+            name: "users-permissions",
+          });
 
           const settings = await pluginStore.get({
-            key: 'advanced',
-          })
+            key: "advanced",
+          });
 
-          const role = await strapi
-            .query('role', 'users-permissions')
-            .findOne({ type: settings.default_role }, [])
+          const role = await strapi.query("role", "users-permissions").findOne({ type: settings.default_role }, []);
 
-          const params = {}
-          params.role = role.id
-          params.email = decodedToken.email
-          params.username = decodedToken.email.split('@')[0]
-          params.confirmed = true
+          const params = {};
+          params.role = role.id;
+          params.email = decodedToken.email;
+          params.username = decodedToken.email.split("@")[0];
+          params.confirmed = true;
 
-          let user = await strapi.query('user', 'users-permissions').create(params)
+          let user = await strapi.query("user", "users-permissions").create(params);
           if (user) {
-            user = sanitizeUser(user)
-            jwt = strapi.plugins['users-permissions'].services.jwt.issue({
+            user = sanitizeUser(user);
+            jwt = strapi.plugins["users-permissions"].services.jwt.issue({
               id: user.id,
-            })
+            });
 
             ctx.body = {
               user,
-              jwt
-            }
+              jwt,
+            };
           } else {
-            throw 'user empty'
+            throw "user empty";
           }
         }
       } else {
-        throw 'email missing'
+        throw "email missing";
       }
     } catch (error) {
-      return ctx.badRequest(null, [{ messages: [{ id: 'unauthorized' }] }])
+      return ctx.badRequest('Invalid token');
     }
   },
-
-}
+};
