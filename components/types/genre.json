@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_types_genres",
+  "info": {
+    "name": "genre",
+    "icon": "broom"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "api_id": {
+      "type": "integer"
+    }
+  }
+}

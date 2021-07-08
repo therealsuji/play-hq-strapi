@@ -559,8 +559,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -600,8 +614,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }

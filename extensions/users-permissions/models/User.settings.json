@@ -59,11 +59,28 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "location": {
+    "phoneNumber": {
       "type": "string"
     },
-    "phone_number": {
-      "type": "string"
+    "genres": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.genre"
+    },
+    "releaseDates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.release-date"
+    },
+    "platforms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.platform"
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "types.location"
     }
   }
 }

@@ -561,11 +561,20 @@
                 "role": {
                   "type": "string"
                 },
-                "location": {
+                "phoneNumber": {
                   "type": "string"
                 },
-                "phone_number": {
-                  "type": "string"
+                "genres": {
+                  "type": "component"
+                },
+                "releaseDates": {
+                  "type": "component"
+                },
+                "platforms": {
+                  "type": "component"
+                },
+                "location": {
+                  "type": "component"
                 },
                 "created_by": {
                   "type": "string"

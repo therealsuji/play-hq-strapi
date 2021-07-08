@@ -541,9 +541,6 @@
           "price": {
             "type": "number"
           },
-          "location": {
-            "type": "string"
-          },
           "remarks": {
             "type": "string"
           },
@@ -565,14 +562,62 @@
               "DISPATCHED"
             ]
           },
-          "game_ids": {
-            "type": "object"
-          },
           "negotiable": {
             "type": "boolean"
           },
+          "gameIds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "platforms": {
-            "type": "object"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -588,9 +633,6 @@
           "price": {
             "type": "number"
           },
-          "location": {
-            "type": "string"
-          },
           "remarks": {
             "type": "string"
           },
@@ -612,14 +654,62 @@
               "DISPATCHED"
             ]
           },
-          "game_ids": {
-            "type": "object"
-          },
           "negotiable": {
             "type": "boolean"
           },
+          "gameIds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "platforms": {
-            "type": "object"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",

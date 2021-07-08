@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_types_number_lists",
+  "info": {
+    "name": "NumberList",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "api_id": {
+      "type": "integer"
+    }
+  }
+}

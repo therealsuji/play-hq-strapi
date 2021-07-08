@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/07/2021 7:22:51 PM"
+    "x-generation-date": "07/08/2021 6:55:58 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3257,6 +3257,134 @@
         ]
       }
     },
+    "/users/setpreferences": {
+      "put": {
+        "deprecated": false,
+        "description": "set user preference",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersPermissionsUser"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "UsersPermissions - User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUsersPermissionsUser"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/setlocation": {
+      "put": {
+        "deprecated": false,
+        "description": "set user location",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersPermissionsUser"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "UsersPermissions - User"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUsersPermissionsUser"
+              }
+            }
+          }
+        }
+      }
+    },
     "/users-permissions/search/{id}": {
       "get": {
         "deprecated": false,
@@ -4490,8 +4618,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -4531,8 +4673,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -4566,9 +4722,6 @@
           "price": {
             "type": "number"
           },
-          "location": {
-            "type": "string"
-          },
           "remarks": {
             "type": "string"
           },
@@ -4590,14 +4743,62 @@
               "DISPATCHED"
             ]
           },
-          "game_ids": {
-            "type": "object"
-          },
           "negotiable": {
             "type": "boolean"
           },
+          "gameIds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "platforms": {
-            "type": "object"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -4613,9 +4814,6 @@
           "price": {
             "type": "number"
           },
-          "location": {
-            "type": "string"
-          },
           "remarks": {
             "type": "string"
           },
@@ -4637,14 +4835,62 @@
               "DISPATCHED"
             ]
           },
-          "game_ids": {
-            "type": "object"
-          },
           "negotiable": {
             "type": "boolean"
           },
+          "gameIds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "platforms": {
-            "type": "object"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -4666,20 +4912,11 @@
           "id": {
             "type": "string"
           },
-          "location": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer"
           },
           "game_id": {
             "type": "integer"
-          },
-          "preferred_game_ids": {
-            "type": "object"
-          },
-          "platforms": {
-            "type": "object"
           },
           "status": {
             "type": "string",
@@ -4689,6 +4926,60 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
+          },
+          "preferred_game_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -4698,20 +4989,11 @@
       },
       "NewTrade-games": {
         "properties": {
-          "location": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer"
           },
           "game_id": {
             "type": "integer"
-          },
-          "preferred_game_ids": {
-            "type": "object"
-          },
-          "platforms": {
-            "type": "object"
           },
           "status": {
             "type": "string",
@@ -4721,6 +5003,60 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
+          },
+          "preferred_game_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -4766,8 +5102,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -4807,8 +5157,22 @@
                 "box_image": {
                   "type": "string"
                 },
-                "platforms": {
-                  "type": "object"
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -4927,11 +5291,20 @@
                 "role": {
                   "type": "string"
                 },
-                "location": {
+                "phoneNumber": {
                   "type": "string"
                 },
-                "phone_number": {
-                  "type": "string"
+                "genres": {
+                  "type": "component"
+                },
+                "releaseDates": {
+                  "type": "component"
+                },
+                "platforms": {
+                  "type": "component"
+                },
+                "location": {
+                  "type": "component"
                 },
                 "created_by": {
                   "type": "string"
@@ -5046,11 +5419,83 @@
               }
             }
           },
-          "location": {
+          "phoneNumber": {
             "type": "string"
           },
-          "phone_number": {
-            "type": "string"
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "releaseDates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           }
         }
       },
@@ -5093,11 +5538,83 @@
           "role": {
             "type": "string"
           },
-          "location": {
+          "phoneNumber": {
             "type": "string"
           },
-          "phone_number": {
-            "type": "string"
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "releaseDates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "created_by": {
             "type": "string"

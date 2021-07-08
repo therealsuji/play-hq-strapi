@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_types_release_dates",
+  "info": {
+    "name": "releaseDate",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    }
+  }
+}

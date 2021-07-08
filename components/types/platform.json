@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_types_platforms",
+  "info": {
+    "name": "platform",
+    "icon": "archway"
+  },
+  "options": {},
+  "attributes": {
+    "api_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

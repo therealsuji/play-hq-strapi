@@ -12,20 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "location": {
-      "type": "string"
-    },
     "user_id": {
       "type": "integer"
     },
     "game_id": {
       "type": "integer"
-    },
-    "preferred_game_ids": {
-      "type": "json"
-    },
-    "platforms": {
-      "type": "json"
     },
     "status": {
       "type": "enumeration",
@@ -35,6 +26,21 @@
         "NOT_COMPLETE",
         "DISPATCHED"
       ]
+    },
+    "preferred_game_ids": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.number-list"
+    },
+    "platforms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.platform"
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "types.location"
     }
   }
 }

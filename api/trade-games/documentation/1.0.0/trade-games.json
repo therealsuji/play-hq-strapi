@@ -535,20 +535,11 @@
           "id": {
             "type": "string"
           },
-          "location": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer"
           },
           "game_id": {
             "type": "integer"
-          },
-          "preferred_game_ids": {
-            "type": "object"
-          },
-          "platforms": {
-            "type": "object"
           },
           "status": {
             "type": "string",
@@ -558,6 +549,60 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
+          },
+          "preferred_game_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -567,20 +612,11 @@
       },
       "NewTrade-games": {
         "properties": {
-          "location": {
-            "type": "string"
-          },
           "user_id": {
             "type": "integer"
           },
           "game_id": {
             "type": "integer"
-          },
-          "preferred_game_ids": {
-            "type": "object"
-          },
-          "platforms": {
-            "type": "object"
           },
           "status": {
             "type": "string",
@@ -590,6 +626,60 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
+          },
+          "preferred_game_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "api_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              }
+            }
           },
           "published_at": {
             "type": "string",
