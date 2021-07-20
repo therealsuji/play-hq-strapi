@@ -1454,6 +1454,9 @@
               },
               "long": {
                 "type": "number"
+              },
+              "address": {
+                "type": "string"
               }
             }
           }
@@ -1573,6 +1576,9 @@
               },
               "long": {
                 "type": "number"
+              },
+              "address": {
+                "type": "string"
               }
             }
           },

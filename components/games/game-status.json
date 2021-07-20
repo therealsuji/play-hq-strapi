@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_games_game_statuses",
+  "info": {
+    "name": "GameStatus",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "gameCondition": {
+      "type": "enumeration",
+      "enum": [
+        "MINT_SEALED",
+        "VERY_NEW",
+        "KINDA_USED",
+        "PLAYABLE"
+      ]
+    },
+    "box_image": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "component",
+      "repeatable": false,
+      "component": "types.platform"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

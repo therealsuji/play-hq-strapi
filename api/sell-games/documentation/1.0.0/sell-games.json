@@ -544,15 +544,6 @@
           "remarks": {
             "type": "string"
           },
-          "condition": {
-            "type": "string",
-            "enum": [
-              "MINT_SEALED",
-              "VERY_NEW",
-              "KINDA_USED",
-              "PLAYABLE"
-            ]
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -564,43 +555,6 @@
           },
           "negotiable": {
             "type": "boolean"
-          },
-          "gameIds": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
           },
           "location": {
             "type": "object",
@@ -616,6 +570,55 @@
               },
               "long": {
                 "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "games": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "gameCondition": {
+                  "type": "string",
+                  "enum": [
+                    "MINT_SEALED",
+                    "VERY_NEW",
+                    "KINDA_USED",
+                    "PLAYABLE"
+                  ]
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "title": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -636,15 +639,6 @@
           "remarks": {
             "type": "string"
           },
-          "condition": {
-            "type": "string",
-            "enum": [
-              "MINT_SEALED",
-              "VERY_NEW",
-              "KINDA_USED",
-              "PLAYABLE"
-            ]
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -656,43 +650,6 @@
           },
           "negotiable": {
             "type": "boolean"
-          },
-          "gameIds": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
           },
           "location": {
             "type": "object",
@@ -708,6 +665,55 @@
               },
               "long": {
                 "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "games": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "gameCondition": {
+                  "type": "string",
+                  "enum": [
+                    "MINT_SEALED",
+                    "VERY_NEW",
+                    "KINDA_USED",
+                    "PLAYABLE"
+                  ]
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platform": {
+                  "type": "object",
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "title": {
+                  "type": "string"
+                }
               }
             }
           },

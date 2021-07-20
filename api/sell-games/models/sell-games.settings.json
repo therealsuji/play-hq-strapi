@@ -21,15 +21,6 @@
     "remarks": {
       "type": "text"
     },
-    "condition": {
-      "type": "enumeration",
-      "enum": [
-        "MINT_SEALED",
-        "VERY_NEW",
-        "KINDA_USED",
-        "PLAYABLE"
-      ]
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -42,20 +33,15 @@
     "negotiable": {
       "type": "boolean"
     },
-    "gameIds": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.number-list"
-    },
-    "platforms": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.platform"
-    },
     "location": {
       "type": "component",
       "repeatable": false,
       "component": "types.location"
+    },
+    "games": {
+      "type": "component",
+      "repeatable": true,
+      "component": "games.game-status"
     }
   }
 }
