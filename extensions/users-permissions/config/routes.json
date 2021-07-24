@@ -14,8 +14,7 @@
           "actionType": "update"
         }
       }
-    }
-    ,
+    },
     {
       "method": "PUT",
       "path": "/users/setlocation",

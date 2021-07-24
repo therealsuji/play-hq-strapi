@@ -28,7 +28,8 @@
         "CANCELLED",
         "NOT_COMPLETE",
         "DISPATCHED"
-      ]
+      ],
+      "default": "NOT_COMPLETE"
     },
     "negotiable": {
       "type": "boolean"

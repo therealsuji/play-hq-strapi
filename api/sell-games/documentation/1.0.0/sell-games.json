@@ -546,6 +546,7 @@
           },
           "status": {
             "type": "string",
+            "default": "NOT_COMPLETE",
             "enum": [
               "COMPLETED",
               "CANCELLED",
@@ -641,6 +642,7 @@
           },
           "status": {
             "type": "string",
+            "default": "NOT_COMPLETE",
             "enum": [
               "COMPLETED",
               "CANCELLED",
