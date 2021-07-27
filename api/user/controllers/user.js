@@ -1,9 +1,3 @@
-const { sanitizeEntity } = require("strapi-utils");
-
-const sanitizeUser = (user) =>
-  sanitizeEntity(user, {
-    model: strapi.plugins["users-permissions"].models.user,
-  });
 module.exports = {
   async setPreferences(ctx) {
     const id = ctx.state.user.id;
@@ -20,7 +14,6 @@ module.exports = {
     );
     return true;
   },
-
   async setLocation(ctx) {
     const id = ctx.state.user.id;
     let location = { ...ctx.request.body.location };
@@ -32,6 +25,4 @@ module.exports = {
     );
     return true;
   },
-
-  //TODO update phone number and username
 };

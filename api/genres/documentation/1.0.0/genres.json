@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/sell-games": {
+    "/genres": {
       "get": {
         "deprecated": false,
-        "description": "Find all the sell-games's records",
+        "description": "Find all the genres's records",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve genres document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Genres"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "parameters": [
           {
@@ -195,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new sell-games record",
+        "description": "Create a new genres record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve genres document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Genres"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "requestBody": {
           "description": "",
@@ -252,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSell-games"
+                "$ref": "#/components/schemas/NewGenres"
               }
             }
           }
         }
       }
     },
-    "/sell-games/count": {
+    "/genres/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of sell-games documents",
+        "description": "Retrieve the numver of genres documents",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve genres document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,26 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "parameters": []
       }
     },
-    "/sell-games/{id}": {
+    "/genres/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one sell-games record",
+        "description": "Find one genres record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve genres document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Genres"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "parameters": [
           {
@@ -385,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single sell-games record",
+        "description": "Update a single genres record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve genres document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Genres"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSell-games"
+                "$ref": "#/components/schemas/NewGenres"
               }
             }
           }
@@ -462,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single sell-games record",
+        "description": "Delete a single genres record",
         "responses": {
           "200": {
-            "description": "deletes a single sell-games based on the ID supplied",
+            "description": "deletes a single genres based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Genres"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Sell-games": {
+      "Genres": {
         "required": [
           "id"
         ],
@@ -535,93 +522,11 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "integer"
-          },
-          "price": {
-            "type": "number"
-          },
-          "remarks": {
+          "name": {
             "type": "string"
           },
-          "status": {
-            "type": "string",
-            "default": "NOT_COMPLETE",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
-          },
-          "negotiable": {
-            "type": "boolean"
-          },
-          "location": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "lat": {
-                "type": "number"
-              },
-              "long": {
-                "type": "number"
-              },
-              "address": {
-                "type": "string"
-              }
-            }
-          },
-          "games": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "platform": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "api_id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "title": {
-                  "type": "string"
-                }
-              }
-            }
+          "image_background": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -629,95 +534,13 @@
           }
         }
       },
-      "NewSell-games": {
+      "NewGenres": {
         "properties": {
-          "user_id": {
-            "type": "integer"
-          },
-          "price": {
-            "type": "number"
-          },
-          "remarks": {
+          "name": {
             "type": "string"
           },
-          "status": {
-            "type": "string",
-            "default": "NOT_COMPLETE",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
-          },
-          "negotiable": {
-            "type": "boolean"
-          },
-          "location": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "lat": {
-                "type": "number"
-              },
-              "long": {
-                "type": "number"
-              },
-              "address": {
-                "type": "string"
-              }
-            }
-          },
-          "games": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "platform": {
-                  "type": "object",
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "api_id": {
-                      "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "title": {
-                  "type": "string"
-                }
-              }
-            }
+          "image_background": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -733,5 +556,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Genres"
+    }
+  ]
 }

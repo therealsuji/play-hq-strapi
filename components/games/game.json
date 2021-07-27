@@ -10,7 +10,7 @@
     "title": {
       "type": "string"
     },
-    "releaseDate": {
+    "release_date": {
       "type": "date"
     },
     "cover_image": {
@@ -20,9 +20,7 @@
       "type": "string"
     },
     "platform": {
-      "type": "component",
-      "repeatable": false,
-      "component": "types.platform"
+      "model": "platforms"
     }
   }
 }

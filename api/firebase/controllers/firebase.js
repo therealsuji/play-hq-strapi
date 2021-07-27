@@ -66,7 +66,7 @@ module.exports = {
         throw "email missing";
       }
     } catch (error) {
-      return ctx.badRequest('Invalid token');
+      return ctx.badRequest("Invalid token");
     }
   },
 };

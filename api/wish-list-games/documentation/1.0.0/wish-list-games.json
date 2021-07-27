@@ -549,7 +549,7 @@
                 "title": {
                   "type": "string"
                 },
-                "releaseDate": {
+                "release_date": {
                   "type": "string",
                   "format": "date"
                 },
@@ -560,7 +560,6 @@
                   "type": "string"
                 },
                 "platform": {
-                  "type": "object",
                   "required": [
                     "id"
                   ],
@@ -568,10 +567,24 @@
                     "id": {
                       "type": "string"
                     },
-                    "api_id": {
-                      "type": "integer"
-                    },
                     "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
                       "type": "string"
                     }
                   }
@@ -604,7 +617,7 @@
                 "title": {
                   "type": "string"
                 },
-                "releaseDate": {
+                "release_date": {
                   "type": "string",
                   "format": "date"
                 },
@@ -615,7 +628,6 @@
                   "type": "string"
                 },
                 "platform": {
-                  "type": "object",
                   "required": [
                     "id"
                   ],
@@ -623,10 +635,24 @@
                     "id": {
                       "type": "string"
                     },
-                    "api_id": {
-                      "type": "integer"
-                    },
                     "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
                       "type": "string"
                     }
                   }

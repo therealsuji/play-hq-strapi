@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "gameCondition": {
+    "game_condition": {
       "type": "enumeration",
       "enum": [
         "MINT_SEALED",
