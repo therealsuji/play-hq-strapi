@@ -19,13 +19,11 @@
     "box_image": {
       "type": "string"
     },
-    "platform": {
-      "type": "component",
-      "repeatable": false,
-      "component": "types.platform"
-    },
     "title": {
       "type": "string"
+    },
+    "platform": {
+      "model": "platforms"
     }
   }
 }

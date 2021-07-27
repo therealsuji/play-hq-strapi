@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/28/2021 12:29:54 AM"
+    "x-generation-date": "07/28/2021 1:22:19 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5777,45 +5777,12 @@
                   ],
                   "properties": {
                     "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
+                      "type": "integer"
                     }
                   }
                 }
               }
             }
-          },
-          "user_id": {
-            "type": "integer"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
           }
         }
       },
@@ -5942,8 +5909,10 @@
                 "box_image": {
                   "type": "string"
                 },
+                "title": {
+                  "type": "string"
+                },
                 "platform": {
-                  "type": "object",
                   "required": [
                     "id"
                   ],
@@ -5951,16 +5920,27 @@
                     "id": {
                       "type": "string"
                     },
-                    "api_id": {
-                      "type": "integer"
-                    },
                     "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
                       "type": "string"
                     }
                   }
-                },
-                "title": {
-                  "type": "string"
                 }
               }
             }
@@ -5973,9 +5953,6 @@
       },
       "NewSell-games": {
         "properties": {
-          "user_id": {
-            "type": "integer"
-          },
           "price": {
             "type": "number"
           },
@@ -6001,9 +5978,6 @@
               "id"
             ],
             "properties": {
-              "id": {
-                "type": "string"
-              },
               "lat": {
                 "type": "number"
               },
@@ -6038,38 +6012,21 @@
                 "box_image": {
                   "type": "string"
                 },
+                "title": {
+                  "type": "string"
+                },
                 "platform": {
-                  "type": "object",
                   "required": [
                     "id"
                   ],
                   "properties": {
                     "id": {
-                      "type": "string"
-                    },
-                    "api_id": {
                       "type": "integer"
-                    },
-                    "name": {
-                      "type": "string"
                     }
                   }
-                },
-                "title": {
-                  "type": "string"
                 }
               }
             }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
           }
         }
       },
@@ -6084,9 +6041,6 @@
           "user_id": {
             "type": "integer"
           },
-          "game_id": {
-            "type": "integer"
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -6095,43 +6049,6 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
-          },
-          "preferred_game_ids": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
           },
           "location": {
             "type": "object",
@@ -6150,6 +6067,117 @@
               },
               "address": {
                 "type": "string"
+              }
+            }
+          },
+          "preferred_games": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "release_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "game": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "release_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "cover_image": {
+                "type": "string"
+              },
+              "box_image": {
+                "type": "string"
+              },
+              "platform": {
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "platform_name": {
+                    "type": "string",
+                    "enum": [
+                      "PLAYSTATION",
+                      "XBOX",
+                      "NINTENDO"
+                    ]
+                  },
+                  "published_at": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "type": "string"
+                  }
+                }
               }
             }
           },
@@ -6161,12 +6189,6 @@
       },
       "NewTrade-games": {
         "properties": {
-          "user_id": {
-            "type": "integer"
-          },
-          "game_id": {
-            "type": "integer"
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -6176,52 +6198,9 @@
               "DISPATCHED"
             ]
           },
-          "preferred_game_ids": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                }
-              }
-            }
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "location": {
             "type": "object",
-            "required": [
-              "id"
-            ],
             "properties": {
-              "id": {
-                "type": "string"
-              },
               "lat": {
                 "type": "number"
               },
@@ -6233,15 +6212,76 @@
               }
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "preferred_games": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "release_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
           },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
+          "game": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "release_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "cover_image": {
+                "type": "string"
+              },
+              "box_image": {
+                "type": "string"
+              },
+              "platform": {
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6351,45 +6391,12 @@
                   ],
                   "properties": {
                     "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
+                      "type": "integer"
                     }
                   }
                 }
               }
             }
-          },
-          "user_id": {
-            "type": "integer"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
           }
         }
       },

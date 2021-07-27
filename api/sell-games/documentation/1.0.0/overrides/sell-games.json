@@ -1,0 +1,90 @@
+{
+  "paths": {
+    "/sell-games": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new sell-games record",
+        "summary": "",
+        "tags": ["Sell-games"],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSell-games"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NewSell-games": {
+        "properties": {
+          "price": {
+            "type": "number"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "default": "NOT_COMPLETE",
+            "enum": ["COMPLETED", "CANCELLED", "NOT_COMPLETE", "DISPATCHED"]
+          },
+          "negotiable": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "games": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "game_condition": {
+                  "type": "string",
+                  "enum": ["MINT_SEALED", "VERY_NEW", "KINDA_USED", "PLAYABLE"]
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": ["id"],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

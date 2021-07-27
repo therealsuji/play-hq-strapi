@@ -15,9 +15,6 @@
     "user_id": {
       "type": "integer"
     },
-    "game_id": {
-      "type": "integer"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -27,20 +24,20 @@
         "DISPATCHED"
       ]
     },
-    "preferred_game_ids": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.number-list"
-    },
-    "platforms": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.platform"
-    },
     "location": {
       "type": "component",
       "repeatable": false,
       "component": "types.location"
+    },
+    "preferred_games": {
+      "type": "component",
+      "repeatable": true,
+      "component": "games.game"
+    },
+    "game": {
+      "type": "component",
+      "repeatable": false,
+      "component": "games.game"
     }
   }
 }

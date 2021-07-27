@@ -1,0 +1,64 @@
+{
+  "paths": {
+    "/wish-list-games": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new wish-list-games record",
+        "summary": "",
+        "tags": ["Wish-list-games"],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewWish-list-games"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NewWish-list-games": {
+        "properties": {
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "release_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "cover_image": {
+                  "type": "string"
+                },
+                "box_image": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": ["id"],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
