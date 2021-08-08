@@ -16,7 +16,8 @@
       "type": "integer"
     },
     "price": {
-      "type": "float"
+      "type": "float",
+      "required": true
     },
     "remarks": {
       "type": "text"
@@ -32,17 +33,21 @@
       "default": "NOT_COMPLETE"
     },
     "negotiable": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "location": {
       "type": "component",
       "repeatable": false,
-      "component": "types.location"
+      "component": "types.location",
+      "required": true
     },
     "games": {
       "type": "component",
       "repeatable": true,
-      "component": "games.game-status"
+      "component": "games.game-status",
+      "required": true,
+      "min": 1
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/28/2021 1:22:19 AM"
+    "x-generation-date": "08/08/2021 12:42:27 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5838,7 +5838,11 @@
       },
       "Sell-games": {
         "required": [
-          "id"
+          "id",
+          "price",
+          "negotiable",
+          "location",
+          "games"
         ],
         "properties": {
           "id": {
@@ -5943,7 +5947,8 @@
                   }
                 }
               }
-            }
+            },
+            "minItems": 1
           },
           "published_at": {
             "type": "string",

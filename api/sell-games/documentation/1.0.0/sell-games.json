@@ -529,7 +529,11 @@
     "schemas": {
       "Sell-games": {
         "required": [
-          "id"
+          "id",
+          "price",
+          "negotiable",
+          "location",
+          "games"
         ],
         "properties": {
           "id": {
@@ -634,7 +638,8 @@
                   }
                 }
               }
-            }
+            },
+            "minItems": 1
           },
           "published_at": {
             "type": "string",
@@ -643,6 +648,12 @@
         }
       },
       "NewSell-games": {
+        "required": [
+          "price",
+          "negotiable",
+          "location",
+          "games"
+        ],
         "properties": {
           "user_id": {
             "type": "integer"
@@ -743,7 +754,8 @@
                   }
                 }
               }
-            }
+            },
+            "minItems": 1
           },
           "published_at": {
             "type": "string",
