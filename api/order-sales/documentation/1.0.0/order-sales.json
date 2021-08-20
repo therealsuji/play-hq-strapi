@@ -1,12 +1,12 @@
 {
   "paths": {
-    "/sell-games": {
+    "/order-sales": {
       "get": {
         "deprecated": false,
-        "description": "Find all the sell-games's records",
+        "description": "Find all the order-sales's records",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve order-sales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "parameters": [
           {
@@ -195,10 +195,10 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new sell-games record",
+        "description": "Create a new order-sales record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve order-sales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "requestBody": {
           "description": "",
@@ -252,20 +252,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSell-games"
+                "$ref": "#/components/schemas/NewOrder-sales"
               }
             }
           }
         }
       }
     },
-    "/sell-games/count": {
+    "/order-sales/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of sell-games documents",
+        "description": "Retrieve the numver of order-sales documents",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve order-sales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -311,18 +311,18 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "parameters": []
       }
     },
-    "/sell-games/{id}": {
+    "/order-sales/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one sell-games record",
+        "description": "Find one order-sales record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve order-sales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "parameters": [
           {
@@ -385,10 +385,10 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single sell-games record",
+        "description": "Update a single order-sales record",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Retrieve order-sales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewSell-games"
+                "$ref": "#/components/schemas/NewOrder-sales"
               }
             }
           }
@@ -462,10 +462,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single sell-games record",
+        "description": "Delete a single order-sales record",
         "responses": {
           "200": {
-            "description": "deletes a single sell-games based on the ID supplied",
+            "description": "deletes a single order-sales based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Sell-games"
+          "Order-sales"
         ],
         "parameters": [
           {
@@ -527,13 +527,11 @@
   },
   "components": {
     "schemas": {
-      "Sell-games": {
+      "Order-sales": {
         "required": [
           "id",
-          "price",
-          "negotiable",
-          "location",
-          "games"
+          "status",
+          "new_price"
         ],
         "properties": {
           "id": {
@@ -542,110 +540,25 @@
           "user_id": {
             "type": "integer"
           },
-          "price": {
-            "type": "number"
-          },
-          "remarks": {
-            "type": "string"
-          },
           "status": {
             "type": "string",
             "default": "NOT_COMPLETE",
             "enum": [
               "COMPLETED",
-              "CANCELLED",
               "NOT_COMPLETE",
-              "DISPATCHED"
+              "CANCELLED"
             ]
           },
-          "negotiable": {
-            "type": "boolean"
+          "new_price": {
+            "type": "number"
           },
-          "location": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "lat": {
-                "type": "number"
-              },
-              "long": {
-                "type": "number"
-              },
-              "address": {
-                "type": "string"
-              }
-            }
-          },
-          "games": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "minItems": 1
-          },
-          "order_sale": {
+          "sell_game": {
             "required": [
               "id",
-              "status",
-              "new_price"
+              "price",
+              "negotiable",
+              "location",
+              "games"
             ],
             "properties": {
               "id": {
@@ -654,18 +567,31 @@
               "user_id": {
                 "type": "integer"
               },
+              "price": {
+                "type": "number"
+              },
+              "remarks": {
+                "type": "string"
+              },
               "status": {
                 "type": "string",
                 "enum": [
                   "COMPLETED",
+                  "CANCELLED",
                   "NOT_COMPLETE",
-                  "CANCELLED"
+                  "DISPATCHED"
                 ]
               },
-              "new_price": {
-                "type": "number"
+              "negotiable": {
+                "type": "boolean"
               },
-              "sell_game": {
+              "location": {
+                "type": "component"
+              },
+              "games": {
+                "type": "component"
+              },
+              "order_sale": {
                 "type": "string"
               },
               "published_at": {
@@ -685,117 +611,28 @@
           }
         }
       },
-      "NewSell-games": {
+      "NewOrder-sales": {
         "required": [
-          "price",
-          "negotiable",
-          "location",
-          "games"
+          "status",
+          "new_price"
         ],
         "properties": {
           "user_id": {
             "type": "integer"
-          },
-          "price": {
-            "type": "number"
-          },
-          "remarks": {
-            "type": "string"
           },
           "status": {
             "type": "string",
             "default": "NOT_COMPLETE",
             "enum": [
               "COMPLETED",
-              "CANCELLED",
               "NOT_COMPLETE",
-              "DISPATCHED"
+              "CANCELLED"
             ]
           },
-          "negotiable": {
-            "type": "boolean"
+          "new_price": {
+            "type": "number"
           },
-          "location": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "lat": {
-                "type": "number"
-              },
-              "long": {
-                "type": "number"
-              },
-              "address": {
-                "type": "string"
-              }
-            }
-          },
-          "games": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "minItems": 1
-          },
-          "order_sale": {
+          "sell_game": {
             "type": "string"
           },
           "published_at": {

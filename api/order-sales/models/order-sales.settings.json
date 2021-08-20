@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_sales",
+  "info": {
+    "name": "OrderSales",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "COMPLETED",
+        "NOT_COMPLETE",
+        "CANCELLED"
+      ],
+      "default": "NOT_COMPLETE",
+      "required": true
+    },
+    "new_price": {
+      "type": "float",
+      "required": true
+    },
+    "sell_game": {
+      "model": "sell-games",
+      "via": "order_sale"
+    }
+  }
+}

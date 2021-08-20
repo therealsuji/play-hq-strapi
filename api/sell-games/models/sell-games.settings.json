@@ -48,6 +48,10 @@
       "component": "games.game-status",
       "required": true,
       "min": 1
+    },
+    "order_sale": {
+      "via": "sell_game",
+      "model": "order-sales"
     }
   }
 }
