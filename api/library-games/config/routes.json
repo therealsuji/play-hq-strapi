@@ -29,7 +29,7 @@
       "path": "/library-games",
       "handler": "library-games.create",
       "config": {
-        "policies": []
+        "policies": ["global::validate-user"]
       }
     },
     {

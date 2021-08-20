@@ -29,7 +29,7 @@
       "path": "/wish-list-games",
       "handler": "wish-list-games.create",
       "config": {
-        "policies": []
+        "policies": ["global::validate-user"]
       }
     },
     {

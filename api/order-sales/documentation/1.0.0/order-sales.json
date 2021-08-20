@@ -591,9 +591,6 @@
               "games": {
                 "type": "component"
               },
-              "order_sale": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },

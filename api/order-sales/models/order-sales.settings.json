@@ -30,8 +30,7 @@
       "required": true
     },
     "sell_game": {
-      "model": "sell-games",
-      "via": "order_sale"
+      "model": "sell-games"
     }
   }
 }

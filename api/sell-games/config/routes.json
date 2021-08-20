@@ -29,7 +29,7 @@
       "path": "/sell-games",
       "handler": "sell-games.create",
       "config": {
-        "policies": []
+        "policies": ["global::validate-user"]
       }
     },
     {

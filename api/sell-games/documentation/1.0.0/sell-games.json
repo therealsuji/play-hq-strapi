@@ -641,44 +641,6 @@
             },
             "minItems": 1
           },
-          "order_sale": {
-            "required": [
-              "id",
-              "status",
-              "new_price"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "user_id": {
-                "type": "integer"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "COMPLETED",
-                  "NOT_COMPLETE",
-                  "CANCELLED"
-                ]
-              },
-              "new_price": {
-                "type": "number"
-              },
-              "sell_game": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -794,9 +756,6 @@
               }
             },
             "minItems": 1
-          },
-          "order_sale": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",
