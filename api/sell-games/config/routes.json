@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/cancel-sale/:id",
+      "handler": "sell-games.cancelSale",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/sell-games",
       "handler": "sell-games.create",

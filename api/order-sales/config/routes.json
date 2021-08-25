@@ -10,6 +10,46 @@
     },
     {
       "method": "GET",
+      "path": "/get-orders/:id",
+      "handler": "order-sales.getOrders",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cancel-order-buyer/:id",
+      "handler": "order-sales.cancelOrderBuyer",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cancel-order-seller/:id",
+      "handler": "order-sales.cancelOrderSeller",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/confirm-order/:id",
+      "handler": "order-sales.confirmOrder",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/update-order/:id",
+      "handler": "order-sales.updateOrderStatus",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/order-sales/count",
       "handler": "order-sales.count",
       "config": {

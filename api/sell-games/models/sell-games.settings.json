@@ -27,6 +27,7 @@
       "enum": [
         "COMPLETED",
         "CANCELLED",
+        "CONFIRMED",
         "NOT_COMPLETE",
         "DISPATCHED"
       ],

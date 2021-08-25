@@ -20,6 +20,9 @@
       "enum": [
         "COMPLETED",
         "NOT_COMPLETE",
+        "CONFIRMED",
+        "DISPATCHED",
+        "NOT_SELECTED",
         "CANCELLED"
       ],
       "default": "NOT_COMPLETE",
@@ -27,7 +30,7 @@
     },
     "new_price": {
       "type": "float",
-      "required": true
+      "required": false
     },
     "sell_game": {
       "model": "sell-games"
