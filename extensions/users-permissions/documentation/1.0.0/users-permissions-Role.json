@@ -576,6 +576,9 @@
                 "location": {
                   "type": "component"
                 },
+                "notification_token": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

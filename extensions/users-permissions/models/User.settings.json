@@ -81,6 +81,9 @@
       "type": "component",
       "repeatable": false,
       "component": "types.location"
+    },
+    "notification_token": {
+      "type": "text"
     }
   }
 }

@@ -1331,6 +1331,9 @@
                 "type": "string"
               }
             }
+          },
+          "notification_token": {
+            "type": "string"
           }
         }
       },
@@ -1453,6 +1456,9 @@
                 "type": "string"
               }
             }
+          },
+          "notification_token": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

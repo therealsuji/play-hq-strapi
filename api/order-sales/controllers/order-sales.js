@@ -2,6 +2,7 @@
 
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const { STATES } = require("../../../utils/constants");
+const { sendNotificationToDevice } = require("../../../utils/notifications");
 
 module.exports = {
   async create(ctx) {
@@ -69,8 +70,8 @@ module.exports = {
     if (!order) {
       return ctx.response.badRequest("Cannot find order");
     }
-    if (order.status == STATES.DISPATCHED) {
-      return ctx.response.badRequest("Cannot cancel active order");
+    if (order.status != STATES.NOT_COMPLETE) {
+      return ctx.response.badRequest("Cannot cancel confirmed order");
     }
     const updatedOrder = await strapi.services["order-sales"].update({ id: order.id }, { status: STATES.CANCELLED });
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
@@ -88,12 +89,18 @@ module.exports = {
       id: order_id,
       "sell_game.user_id": ctx.state.user.id,
     });
-    // TODO send notification to buyer to renegotiate
     if (!order) {
       return ctx.response.badRequest("Cannot find order");
     }
 
     const updatedOrder = await strapi.services["order-sales"].update({ id: order.id }, { status: STATES.CANCELLED });
+
+    // send notification to buyer to renegotiate
+    sendNotificationToDevice(
+      updatedOrder.user_id,
+      "Your order has been cancelled the seller was not happy with your new price, Create a new order to proceed"
+    );
+
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
   },
 
@@ -103,6 +110,10 @@ module.exports = {
     if (!Object.values(STATES).includes(status)) {
       return ctx.response.badRequest("valid status is required");
     }
+    if (status == STATES.CONFIRMED && status == STATES.CANCELLED) {
+      return ctx.response.badRequest(`Cannot ${status} order with this endpoint`);
+    }
+
     if (!order_id) {
       return ctx.response.badRequest("Id required");
     }
@@ -114,7 +125,11 @@ module.exports = {
     updatedOrder = await strapi.services["order-sales"].findOne({
       id: order_id,
     });
-    // TODO send notification to buyer 
+    // send notification to buyer
+    sendNotificationToDevice(
+      updatedOrder.user_id,
+      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been updated`
+    );
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
   },
 
@@ -142,17 +157,26 @@ module.exports = {
       { status: STATES.CONFIRMED }
     );
     const updatedOrder = await strapi.services["order-sales"].update({ id: order.id }, { status: STATES.CONFIRMED });
+    // send notification to buyer about getting confirmed
+    sendNotificationToDevice(
+      updatedOrder.user_id,
+      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been confirmed`
+    );
 
     /*UPDATING OTHER ORDERS FOR THE SELECTED SALE*/
     // get all other orders for the sale
     const all_orders = await strapi.services["order-sales"].find({ "sell_game.id": sale.id });
-    const all_order_ids = all_orders.map((order) => order.id);
+    const other_order_ids = all_orders.map((order) => order.id != updatedOrder.id);
+
     // update all other orders status to not selected
     const knex = strapi.connections.default;
-    const updated_other_orders = await knex("order_sales")
-      .whereIn("id", all_order_ids)
-      .update({ status: STATES.NOT_SELECTED });
-    // TODO send notification to other buyers about not getting selected
+    await knex("order_sales").whereIn("id", other_order_ids).update({ status: STATES.NOT_SELECTED });
+
+    // send notification to other buyers about not getting selected
+    const other_user_ids = all_orders.map((order) => order.id != updatedOrder.id);
+    if (other_user_ids.length) {
+      sendNotificationToUsers(other_user_ids, `${sale.games[0].title} has been canceled`);
+    }
 
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
   },

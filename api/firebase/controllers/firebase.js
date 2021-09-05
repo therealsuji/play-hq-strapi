@@ -10,8 +10,8 @@ const sanitizeUser = (user) =>
 module.exports = {
   async auth(ctx) {
     try {
-      const idToken = ctx.request.body.token;
-      const decodedToken = await strapi.firebase.auth().verifyIdToken(idToken);
+      const { token, fcmToken } = ctx.request.body;
+      const decodedToken = await strapi.firebase.auth().verifyIdToken(token);
       if (decodedToken.email) {
         let jwt;
         let user = await strapi.plugins["users-permissions"].services.user.fetch({
@@ -46,6 +46,7 @@ module.exports = {
           params.email = decodedToken.email;
           params.username = decodedToken.email.split("@")[0];
           params.confirmed = true;
+          params.notification_token = fcmToken;
 
           let user = await strapi.query("user", "users-permissions").create(params);
           if (user) {
@@ -68,5 +69,14 @@ module.exports = {
     } catch (error) {
       return ctx.badRequest("Invalid token");
     }
+  },
+
+  async updateFcmToken(ctx) {
+    const user_id = ctx.state.user.id;
+    const token = ctx.params.token;
+    if (!token) {
+      return ctx.response.badRequest("token required");
+    }
+    return await strapi.query('user', 'users-permissions').update({id: user_id}, {notification_token: token});
   },
 };

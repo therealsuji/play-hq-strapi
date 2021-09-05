@@ -3,6 +3,7 @@
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const { STATES } = require("../../../utils/constants");
 const _ = require("lodash");
+const { sendNotificationToUsers } = require("../../../utils/notifications.js");
 
 module.exports = {
   /**
@@ -44,7 +45,12 @@ module.exports = {
       { id: ctx.params.id },
       { status: STATES.CANCELLED }
     );
-    //TODO send notification to buyer about order cancelling
+
+    // send notification to all buyers about order cancelling
+    const user_ids = all_order.map((order) => order.user_id);
+    if (user_ids.length) {
+      sendNotificationToUsers(user_ids, `${sale.games[0].title} has been canceled`);
+    }
 
     return sanitizeEntity(updated_sale, { model: strapi.models["sell-games"] });
   },

@@ -7,6 +7,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/firebase/update-notification/:token",
+      "handler": "firebase.updateFcmToken",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
