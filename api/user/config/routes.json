@@ -1,15 +1,15 @@
 {
   "routes": [
     {
-      "method": "POST",
-      "path": "/user/set-location",
-      "handler": "user.setLocation",
+      "method": "PATCH",
+      "path": "/user/set-details",
+      "handler": "user.setDetails",
       "config": {
         "policies": []
       }
     },
     {
-      "method": "POST",
+      "method": "PATCH",
       "path": "/user/set-preferences",
       "handler": "user.setPreferences",
       "config": {

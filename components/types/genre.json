@@ -2,15 +2,13 @@
   "collectionName": "components_types_genres",
   "info": {
     "name": "genre",
-    "icon": "broom"
+    "icon": "broom",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "api_id": {
-      "type": "integer"
+    "genre": {
+      "model": "genres"
     }
   }
 }

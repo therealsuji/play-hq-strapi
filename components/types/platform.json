@@ -2,15 +2,13 @@
   "collectionName": "components_types_platforms",
   "info": {
     "name": "platform",
-    "icon": "archway"
+    "icon": "archway",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "api_id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
+    "platform": {
+      "model": "platforms"
     }
   }
 }

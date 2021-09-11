@@ -561,22 +561,25 @@
                 "role": {
                   "type": "string"
                 },
-                "phoneNumber": {
+                "phone_number": {
                   "type": "string"
                 },
-                "genres": {
+                "pref_genres": {
                   "type": "component"
                 },
-                "releaseDates": {
+                "pref_release_dates": {
                   "type": "component"
                 },
-                "platforms": {
+                "pref_platforms": {
                   "type": "component"
                 },
                 "location": {
                   "type": "component"
                 },
                 "notification_token": {
+                  "type": "string"
+                },
+                "name": {
                   "type": "string"
                 },
                 "created_by": {

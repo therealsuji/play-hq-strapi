@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/29/2021 7:47:19 PM"
+    "x-generation-date": "09/11/2021 1:40:22 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3713,10 +3713,10 @@
         ]
       }
     },
-    "/user/set-location": {
-      "post": {
+    "/user/set-details": {
+      "patch": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "set user details",
         "responses": {
           "200": {
             "description": "response",
@@ -3767,6 +3767,7 @@
         "tags": [
           "User"
         ],
+        "parameters": [],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3774,7 +3775,24 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "foo": {
+                  "location": {
+                    "type": "object",
+                    "properties": {
+                      "lat": {
+                        "type": "number"
+                      },
+                      "long": {
+                        "type": "number"
+                      },
+                      "address": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "phone_number": {
+                    "type": "string"
+                  },
+                  "name": {
                     "type": "string"
                   }
                 }
@@ -3785,9 +3803,9 @@
       }
     },
     "/user/set-preferences": {
-      "post": {
+      "patch": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "set user preference",
         "responses": {
           "200": {
             "description": "response",
@@ -3838,6 +3856,7 @@
         "tags": [
           "User"
         ],
+        "parameters": [],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3845,8 +3864,23 @@
             "application/json": {
               "schema": {
                 "properties": {
-                  "foo": {
-                    "type": "string"
+                  "genres": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "release_dates": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "platforms": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
                   }
                 }
               }
@@ -7630,22 +7664,25 @@
                 "role": {
                   "type": "string"
                 },
-                "phoneNumber": {
+                "phone_number": {
                   "type": "string"
                 },
-                "genres": {
+                "pref_genres": {
                   "type": "component"
                 },
-                "releaseDates": {
+                "pref_release_dates": {
                   "type": "component"
                 },
-                "platforms": {
+                "pref_platforms": {
                   "type": "component"
                 },
                 "location": {
                   "type": "component"
                 },
                 "notification_token": {
+                  "type": "string"
+                },
+                "name": {
                   "type": "string"
                 },
                 "created_by": {
@@ -7761,10 +7798,10 @@
               }
             }
           },
-          "phoneNumber": {
+          "phone_number": {
             "type": "string"
           },
-          "genres": {
+          "pref_genres": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7775,16 +7812,35 @@
                 "id": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
+                "genre": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_background": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
-          "releaseDates": {
+          "pref_release_dates": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7802,7 +7858,7 @@
               }
             }
           },
-          "platforms": {
+          "pref_platforms": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7813,11 +7869,35 @@
                 "id": {
                   "type": "string"
                 },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -7843,6 +7923,9 @@
             }
           },
           "notification_token": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           }
         }
@@ -7886,10 +7969,10 @@
           "role": {
             "type": "string"
           },
-          "phoneNumber": {
+          "phone_number": {
             "type": "string"
           },
-          "genres": {
+          "pref_genres": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7900,16 +7983,35 @@
                 "id": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
+                "genre": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_background": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
-          "releaseDates": {
+          "pref_release_dates": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7927,7 +8029,7 @@
               }
             }
           },
-          "platforms": {
+          "pref_platforms": {
             "type": "array",
             "items": {
               "type": "object",
@@ -7938,11 +8040,35 @@
                 "id": {
                   "type": "string"
                 },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -7968,6 +8094,9 @@
             }
           },
           "notification_token": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           },
           "created_by": {

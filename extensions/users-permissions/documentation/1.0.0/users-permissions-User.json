@@ -1251,10 +1251,10 @@
               }
             }
           },
-          "phoneNumber": {
+          "phone_number": {
             "type": "string"
           },
-          "genres": {
+          "pref_genres": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1265,16 +1265,35 @@
                 "id": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
+                "genre": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_background": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
-          "releaseDates": {
+          "pref_release_dates": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1292,7 +1311,7 @@
               }
             }
           },
-          "platforms": {
+          "pref_platforms": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1303,11 +1322,35 @@
                 "id": {
                   "type": "string"
                 },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -1333,6 +1376,9 @@
             }
           },
           "notification_token": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           }
         }
@@ -1376,10 +1422,10 @@
           "role": {
             "type": "string"
           },
-          "phoneNumber": {
+          "phone_number": {
             "type": "string"
           },
-          "genres": {
+          "pref_genres": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1390,16 +1436,35 @@
                 "id": {
                   "type": "string"
                 },
-                "name": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
+                "genre": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image_background": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
-          "releaseDates": {
+          "pref_release_dates": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1417,7 +1482,7 @@
               }
             }
           },
-          "platforms": {
+          "pref_platforms": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1428,11 +1493,35 @@
                 "id": {
                   "type": "string"
                 },
-                "api_id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -1458,6 +1547,9 @@
             }
           },
           "notification_token": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           },
           "created_by": {

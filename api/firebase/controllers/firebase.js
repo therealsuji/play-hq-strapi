@@ -1,11 +1,6 @@
 "use strict";
 
-const { sanitizeEntity } = require("strapi-utils");
-
-const sanitizeUser = (user) =>
-  sanitizeEntity(user, {
-    model: strapi.query("user", "users-permissions").model,
-  });
+const { sanitizeUser } = require("../../../utils/helper");
 
 module.exports = {
   async auth(ctx) {
@@ -77,6 +72,7 @@ module.exports = {
     if (!token) {
       return ctx.response.badRequest("token required");
     }
-    return await strapi.query('user', 'users-permissions').update({id: user_id}, {notification_token: token});
+    const user = await strapi.query("user", "users-permissions").update({ id: user_id }, { notification_token: token });
+    return sanitizeUser(user);
   },
 };

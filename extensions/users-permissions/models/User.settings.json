@@ -59,20 +59,20 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "phoneNumber": {
+    "phone_number": {
       "type": "string"
     },
-    "genres": {
+    "pref_genres": {
       "type": "component",
       "repeatable": true,
       "component": "types.genre"
     },
-    "releaseDates": {
+    "pref_release_dates": {
       "type": "component",
       "repeatable": true,
       "component": "types.release-date"
     },
-    "platforms": {
+    "pref_platforms": {
       "type": "component",
       "repeatable": true,
       "component": "types.platform"
@@ -84,6 +84,9 @@
     },
     "notification_token": {
       "type": "text"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
