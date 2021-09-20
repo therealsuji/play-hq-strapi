@@ -523,6 +523,77 @@
           }
         ]
       }
+    },
+    "/library-games/set": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new library-games record",
+        "responses": {
+          "200": {
+            "description": "Retrieve library-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Library-games"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -535,137 +606,71 @@
           "id": {
             "type": "string"
           },
-          "list": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "release_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "cover_image": {
-                  "type": "string"
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+          "title": {
+            "type": "string"
           },
-          "user_id": {
+          "box_cover": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "api_id": {
             "type": "integer"
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "platform": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "platform_name": {
+                "type": "string",
+                "enum": [
+                  "PLAYSTATION",
+                  "XBOX",
+                  "NINTENDO"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
       "NewLibrary-games": {
         "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "release_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "cover_image": {
-                  "type": "string"
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+          "user": {
+            "type": "string"
           },
-          "user_id": {
+          "title": {
+            "type": "string"
+          },
+          "box_cover": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "api_id": {
             "type": "integer"
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "platform": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

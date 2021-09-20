@@ -8,18 +8,29 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "list": {
-      "type": "component",
-      "repeatable": true,
-      "component": "games.game"
+    "user": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user"
     },
-    "user_id": {
-      "type": "integer",
-      "private": false
+    "title": {
+      "type": "string"
+    },
+    "box_cover": {
+      "type": "string"
+    },
+    "release_date": {
+      "type": "date"
+    },
+    "api_id": {
+      "type": "integer"
+    },
+    "platform": {
+      "model": "platforms"
     }
   }
 }

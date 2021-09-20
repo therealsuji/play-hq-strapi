@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "integer"
-    },
     "price": {
       "type": "float",
       "required": true
@@ -49,6 +46,11 @@
       "component": "games.game-status",
       "required": true,
       "min": 1
+    },
+    "user": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

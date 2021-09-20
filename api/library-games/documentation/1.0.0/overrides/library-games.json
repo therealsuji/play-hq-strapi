@@ -3,7 +3,7 @@
     "/library-games": {
       "post": {
         "deprecated": false,
-        "description": "Create a new library-games record",
+        "description": "Add a new library-games record",
         "summary": "",
         "tags": ["Library-games"],
         "requestBody": {
@@ -18,44 +18,53 @@
           }
         }
       }
+    },
+    "/library-games/set": {
+      "post": {
+        "deprecated": false,
+        "description": "Set a new library-games record for a user",
+        "summary": "",
+        "tags": ["Library-games"],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "list": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/NewLibrary-games"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
       "NewLibrary-games": {
         "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": ["id"],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "release_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "cover_image": {
-                  "type": "string"
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": ["id"],
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    }
-                  }
-                }
-              }
-            }
+          "title": {
+            "type": "string"
+          },
+          "box_cover": {
+            "type": "string"
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "api_id": {
+            "type": "integer"
+          },
+          "platform": {
+            "type": "string"
           }
         }
       }

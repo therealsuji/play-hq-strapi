@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/wish-list-games/set",
+      "handler": "wish-list-games.set",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/wish-list-games/:id",
       "handler": "wish-list-games.update",

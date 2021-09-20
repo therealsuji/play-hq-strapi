@@ -2,7 +2,7 @@
 
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const { STATES } = require("../../../utils/constants");
-const { sendNotificationToDevice } = require("../../../utils/notifications");
+const { sendNotificationToDevice, sendNotificationToUsers } = require("../../../utils/notifications");
 
 module.exports = {
   async create(ctx) {
@@ -16,12 +16,12 @@ module.exports = {
         return ctx.response.badRequest("sale not found");
       }
 
-      if (user_id == sale.user_id) {
+      if (user_id == sale.user) {
         return ctx.response.badRequest("cannot buy own game");
       }
 
       const prev_order = await strapi.services["order-sales"].find({
-        user_id: user_id,
+        user: user_id,
         "sell_game.id": sale.id,
       });
 
@@ -47,7 +47,7 @@ module.exports = {
     }
     const sale = await strapi.services["sell-games"].findOne({
       id: order_id,
-      user_id: ctx.state.user.id,
+      user: ctx.state.user.id,
     });
     if (!sale) {
       return ctx.response.badRequest("Cannot find sale");
@@ -66,7 +66,7 @@ module.exports = {
     if (!order_id) {
       return ctx.response.badRequest("Id required");
     }
-    const order = await strapi.services["order-sales"].findOne({ id: order_id, user_id: ctx.state.user.id });
+    const order = await strapi.services["order-sales"].findOne({ id: order_id, user: ctx.state.user.id });
     if (!order) {
       return ctx.response.badRequest("Cannot find order");
     }
@@ -87,7 +87,7 @@ module.exports = {
     }
     const order = await strapi.services["order-sales"].findOne({
       id: order_id,
-      "sell_game.user_id": ctx.state.user.id,
+      "sell_game.user": ctx.state.user.id,
     });
     if (!order) {
       return ctx.response.badRequest("Cannot find order");
@@ -97,7 +97,7 @@ module.exports = {
 
     // send notification to buyer to renegotiate
     sendNotificationToDevice(
-      updatedOrder.user_id,
+      updatedOrder.user,
       "Your order has been cancelled the seller was not happy with your new price, Create a new order to proceed"
     );
 
@@ -127,7 +127,7 @@ module.exports = {
     });
     // send notification to buyer
     sendNotificationToDevice(
-      updatedOrder.user_id,
+      updatedOrder.user,
       `Hey your order with ${updatedOrder.sell_game.games[0].title} has been updated`
     );
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
@@ -159,7 +159,7 @@ module.exports = {
     const updatedOrder = await strapi.services["order-sales"].update({ id: order.id }, { status: STATES.CONFIRMED });
     // send notification to buyer about getting confirmed
     sendNotificationToDevice(
-      updatedOrder.user_id,
+      updatedOrder.user,
       `Hey your order with ${updatedOrder.sell_game.games[0].title} has been confirmed`
     );
 

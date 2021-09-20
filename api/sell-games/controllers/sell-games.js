@@ -16,7 +16,7 @@ module.exports = {
     if (!sell_game_id) {
       return ctx.response.badRequest("Id required");
     }
-    const sale = await strapi.services["sell-games"].findOne({ id: sell_game_id, user_id: user_id });
+    const sale = await strapi.services["sell-games"].findOne({ id: sell_game_id, user: user_id });
     if (!sale) {
       return ctx.response.badRequest("Cannot find sale");
     }
@@ -36,7 +36,7 @@ module.exports = {
       .where("sell_games.id", sell_game_id)
       .join("sell_games", "order_sales.sell_game", "sell_games.id")
       .select("order_sales.id")
-      .select("order_sales.user_id");
+      .select("order_sales.user");
     const order_ids = all_order.map((order) => order.id);
     // Update all the orders to cancelled
     const updated_orders = await knex("order_sales").whereIn("id", order_ids).update({ status: STATES.CANCELLED });
@@ -47,7 +47,7 @@ module.exports = {
     );
 
     // send notification to all buyers about order cancelling
-    const user_ids = all_order.map((order) => order.user_id);
+    const user_ids = all_order.map((order) => order.user);
     if (user_ids.length) {
       sendNotificationToUsers(user_ids, `${sale.games[0].title} has been canceled`);
     }

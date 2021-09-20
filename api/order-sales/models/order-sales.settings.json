@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "integer"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -34,6 +31,11 @@
     },
     "sell_game": {
       "model": "sell-games"
+    },
+    "user": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

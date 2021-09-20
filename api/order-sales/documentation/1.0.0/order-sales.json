@@ -879,9 +879,6 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "integer"
-          },
           "status": {
             "type": "string",
             "default": "NOT_COMPLETE",
@@ -909,9 +906,6 @@
               "id": {
                 "type": "string"
               },
-              "user_id": {
-                "type": "integer"
-              },
               "price": {
                 "type": "number"
               },
@@ -937,6 +931,9 @@
               "games": {
                 "type": "component"
               },
+              "user": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -959,9 +956,6 @@
           "status"
         ],
         "properties": {
-          "user_id": {
-            "type": "integer"
-          },
           "status": {
             "type": "string",
             "default": "NOT_COMPLETE",
@@ -978,6 +972,9 @@
             "type": "number"
           },
           "sell_game": {
+            "type": "string"
+          },
+          "user": {
             "type": "string"
           },
           "published_at": {

@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/library-games/set",
+      "handler": "library-games.set",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/library-games/:id",
       "handler": "library-games.update",

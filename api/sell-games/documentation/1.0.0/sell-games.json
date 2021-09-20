@@ -607,9 +607,6 @@
           "id": {
             "type": "string"
           },
-          "user_id": {
-            "type": "integer"
-          },
           "price": {
             "type": "number"
           },
@@ -724,9 +721,6 @@
           "games"
         ],
         "properties": {
-          "user_id": {
-            "type": "integer"
-          },
           "price": {
             "type": "number"
           },
@@ -826,6 +820,9 @@
               }
             },
             "minItems": 1
+          },
+          "user": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
