@@ -1380,6 +1380,10 @@
           },
           "name": {
             "type": "string"
+          },
+          "setupDone": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -1551,6 +1555,10 @@
           },
           "name": {
             "type": "string"
+          },
+          "setupDone": {
+            "type": "boolean",
+            "default": false
           },
           "created_by": {
             "type": "string"

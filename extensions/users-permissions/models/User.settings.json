@@ -87,6 +87,10 @@
     },
     "name": {
       "type": "string"
+    },
+    "setupDone": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

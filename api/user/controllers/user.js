@@ -41,7 +41,9 @@ module.exports = {
     if (body.name) {
       data.name = body.name;
     }
-    const user = await strapi.query("user", "users-permissions").update({ id }, body);
+    // This sets the user onboarding status to true
+    data.setupDone = true;
+    const user = await strapi.query("user", "users-permissions").update({ id }, data);
     return sanitizeUser(user);
   },
 };

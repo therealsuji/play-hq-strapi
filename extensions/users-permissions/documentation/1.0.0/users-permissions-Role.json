@@ -582,6 +582,9 @@
                 "name": {
                   "type": "string"
                 },
+                "setupDone": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
