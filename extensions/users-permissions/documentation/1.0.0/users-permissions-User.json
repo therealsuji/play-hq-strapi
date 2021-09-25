@@ -1304,7 +1304,11 @@
                 "id": {
                   "type": "string"
                 },
-                "date": {
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
                   "type": "string",
                   "format": "date"
                 }
@@ -1479,7 +1483,11 @@
                 "id": {
                   "type": "string"
                 },
-                "date": {
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
                   "type": "string",
                   "format": "date"
                 }

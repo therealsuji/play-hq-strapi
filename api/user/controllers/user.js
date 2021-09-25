@@ -14,16 +14,14 @@ module.exports = {
       });
     }
     if (body.release_dates) {
-      data.pref_release_dates = body.release_dates.map((val) => {
-        return { date: val };
-      });
+      data.pref_release_dates = body.release_dates;
     }
     if (body.platforms) {
       data.pref_platforms = body.platforms.map((val) => {
         return { platform: val };
       });
     }
-     const user = await strapi.query("user", "users-permissions").update({ id }, data);
+    const user = await strapi.query("user", "users-permissions").update({ id }, data);
     return sanitizeUser(user);
   },
 

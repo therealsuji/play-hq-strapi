@@ -20,7 +20,17 @@
                   "release_dates": {
                     "type": "array",
                     "items": {
-                      "type": "number"
+                      "type": "object",
+                      "properties": {
+                        "from_date": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "to_date": {
+                          "type": "string",
+                          "format": "date"
+                        }
+                      }
                     }
                   },
                   "platforms": {

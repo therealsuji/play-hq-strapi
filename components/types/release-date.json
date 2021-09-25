@@ -2,11 +2,15 @@
   "collectionName": "components_types_release_dates",
   "info": {
     "name": "releaseDate",
-    "icon": "calendar-alt"
+    "icon": "calendar-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "date": {
+    "from_date": {
+      "type": "date"
+    },
+    "to_date": {
       "type": "date"
     }
   }
