@@ -64,7 +64,7 @@
             "type": "integer"
           },
           "platform": {
-            "type": "string"
+            "type": "integer"
           }
         }
       }
