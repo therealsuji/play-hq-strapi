@@ -13,7 +13,7 @@ const sanitizeUser = (user) => {
     return val.platform;
   });
   data.pref_release_dates = _.flatMap(data.pref_release_dates, (val) => {
-    return val.date;
+    return val;
   });
 
   return data;

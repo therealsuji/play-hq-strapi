@@ -67,11 +67,6 @@
       "repeatable": true,
       "component": "types.genre"
     },
-    "pref_release_dates": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.release-date"
-    },
     "pref_platforms": {
       "type": "component",
       "repeatable": true,
@@ -91,6 +86,11 @@
     "setupDone": {
       "type": "boolean",
       "default": false
+    },
+    "pref_release_dates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.pref-release-dates"
     }
   }
 }

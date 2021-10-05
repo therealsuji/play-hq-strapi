@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/25/2021 3:00:01 PM"
+    "x-generation-date": "10/05/2021 12:05:04 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6855,7 +6855,7 @@
             "type": "integer"
           },
           "platform": {
-            "type": "string"
+            "type": "integer"
           }
         }
       },
@@ -6964,9 +6964,6 @@
                 "pref_genres": {
                   "type": "component"
                 },
-                "pref_release_dates": {
-                  "type": "component"
-                },
                 "pref_platforms": {
                   "type": "component"
                 },
@@ -6981,6 +6978,9 @@
                 },
                 "setupDone": {
                   "type": "boolean"
+                },
+                "pref_release_dates": {
+                  "type": "component"
                 },
                 "created_by": {
                   "type": "string"
@@ -7137,28 +7137,6 @@
               }
             }
           },
-          "pref_release_dates": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "from_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "to_date": {
-                  "type": "string",
-                  "format": "date"
-                }
-              }
-            }
-          },
           "pref_platforms": {
             "type": "array",
             "items": {
@@ -7232,6 +7210,28 @@
           "setupDone": {
             "type": "boolean",
             "default": false
+          },
+          "pref_release_dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
           }
         }
       },
@@ -7316,28 +7316,6 @@
               }
             }
           },
-          "pref_release_dates": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "from_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "to_date": {
-                  "type": "string",
-                  "format": "date"
-                }
-              }
-            }
-          },
           "pref_platforms": {
             "type": "array",
             "items": {
@@ -7411,6 +7389,28 @@
           "setupDone": {
             "type": "boolean",
             "default": false
+          },
+          "pref_release_dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

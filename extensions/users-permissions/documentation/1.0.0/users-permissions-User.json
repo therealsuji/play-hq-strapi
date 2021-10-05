@@ -1293,28 +1293,6 @@
               }
             }
           },
-          "pref_release_dates": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "from_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "to_date": {
-                  "type": "string",
-                  "format": "date"
-                }
-              }
-            }
-          },
           "pref_platforms": {
             "type": "array",
             "items": {
@@ -1388,6 +1366,28 @@
           "setupDone": {
             "type": "boolean",
             "default": false
+          },
+          "pref_release_dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
           }
         }
       },
@@ -1472,28 +1472,6 @@
               }
             }
           },
-          "pref_release_dates": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "from_date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "to_date": {
-                  "type": "string",
-                  "format": "date"
-                }
-              }
-            }
-          },
           "pref_platforms": {
             "type": "array",
             "items": {
@@ -1567,6 +1545,28 @@
           "setupDone": {
             "type": "boolean",
             "default": false
+          },
+          "pref_release_dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "from_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "to_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

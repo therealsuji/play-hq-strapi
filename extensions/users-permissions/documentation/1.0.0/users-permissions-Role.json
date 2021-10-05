@@ -567,9 +567,6 @@
                 "pref_genres": {
                   "type": "component"
                 },
-                "pref_release_dates": {
-                  "type": "component"
-                },
                 "pref_platforms": {
                   "type": "component"
                 },
@@ -584,6 +581,9 @@
                 },
                 "setupDone": {
                   "type": "boolean"
+                },
+                "pref_release_dates": {
+                  "type": "component"
                 },
                 "created_by": {
                   "type": "string"

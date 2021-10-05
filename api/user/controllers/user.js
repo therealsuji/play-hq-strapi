@@ -14,7 +14,7 @@ module.exports = {
       });
     }
     if (body.release_dates) {
-      data.pref_release_dates = body.release_dates;
+      data.pref_release_dates =  body.release_dates;
     }
     if (body.platforms) {
       data.pref_platforms = body.platforms.map((val) => {

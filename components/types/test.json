@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_types_tests",
+  "info": {
+    "name": "test",
+    "icon": "arrow-alt-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "from_date": {
+      "type": "date"
+    },
+    "to_date": {
+      "type": "date"
+    }
+  }
+}

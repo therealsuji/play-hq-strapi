@@ -8,10 +8,12 @@
   "options": {},
   "attributes": {
     "from_date": {
-      "type": "date"
+      "type": "datetime",
+      "required": false
     },
     "to_date": {
-      "type": "date"
+      "type": "datetime",
+      "required": true
     }
   }
 }
