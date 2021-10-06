@@ -24,6 +24,10 @@
     },
     "platform": {
       "model": "platforms"
+    },
+    "api_id": {
+      "type": "integer",
+      "required": true
     }
   }
 }

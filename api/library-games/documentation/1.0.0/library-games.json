@@ -619,33 +619,47 @@
           "api_id": {
             "type": "integer"
           },
-          "platform": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "platform_name": {
-                "type": "string",
-                "enum": [
-                  "PLAYSTATION",
-                  "XBOX",
-                  "NINTENDO"
-                ]
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
               }
             }
           }
@@ -669,8 +683,49 @@
           "api_id": {
             "type": "integer"
           },
-          "platform": {
-            "type": "string"
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

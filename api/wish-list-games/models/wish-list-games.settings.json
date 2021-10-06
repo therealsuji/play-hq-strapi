@@ -18,19 +18,26 @@
       "model": "user"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "box_cover": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "api_id": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "release_date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
-    "platform": {
-      "model": "platforms"
+    "platforms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.platform",
+      "required": true
     }
   }
 }

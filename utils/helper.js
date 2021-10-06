@@ -19,4 +19,10 @@ const sanitizeUser = (user) => {
   return data;
 };
 
-module.exports = { sanitizeUser };
+const flattenObjectNested = (obj, key) => {
+  return _.flatMap(obj, (val) => {
+    return val[key];
+  });
+};
+
+module.exports = { sanitizeUser, flattenObjectNested };

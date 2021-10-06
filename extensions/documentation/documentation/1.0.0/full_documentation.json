@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/05/2021 12:05:04 AM"
+    "x-generation-date": "10/05/2021 8:35:12 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6368,33 +6368,47 @@
           "api_id": {
             "type": "integer"
           },
-          "platform": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "platform_name": {
-                "type": "string",
-                "enum": [
-                  "PLAYSTATION",
-                  "XBOX",
-                  "NINTENDO"
-                ]
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
               }
             }
           }
@@ -6646,7 +6660,8 @@
             "items": {
               "type": "object",
               "required": [
-                "id"
+                "id",
+                "api_id"
               ],
               "properties": {
                 "id": {
@@ -6696,6 +6711,9 @@
                       "type": "string"
                     }
                   }
+                },
+                "api_id": {
+                  "type": "integer"
                 }
               }
             },
@@ -6788,7 +6806,12 @@
       },
       "Wish-list-games": {
         "required": [
-          "id"
+          "id",
+          "title",
+          "box_cover",
+          "api_id",
+          "release_date",
+          "platforms"
         ],
         "properties": {
           "id": {
@@ -6807,33 +6830,47 @@
             "type": "string",
             "format": "date"
           },
-          "platform": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "platform_name": {
-                "type": "string",
-                "enum": [
-                  "PLAYSTATION",
-                  "XBOX",
-                  "NINTENDO"
-                ]
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
               }
             }
           }

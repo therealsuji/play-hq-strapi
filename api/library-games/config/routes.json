@@ -37,7 +37,7 @@
       "path": "/library-games/set",
       "handler": "library-games.set",
       "config": {
-        "policies": []
+        "policies": ["global::validate-user"]
       }
     },
     {

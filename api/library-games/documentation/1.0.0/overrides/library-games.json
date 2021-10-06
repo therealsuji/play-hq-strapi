@@ -63,8 +63,11 @@
           "api_id": {
             "type": "integer"
           },
-          "platform": {
-            "type": "string"
+          "platforms": {
+            "type": "array", 
+            "items": {
+              "type": "number"
+            }
           }
         }
       }
