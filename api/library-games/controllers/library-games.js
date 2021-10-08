@@ -18,7 +18,6 @@ module.exports = {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
       const body = ctx.request.body;
-      const knex = strapi.connections.default;
       await strapi.query("library-games").delete({ user: user_id });
       const data = body.list;
       for (let item of data) {
@@ -26,10 +25,10 @@ module.exports = {
         item.platforms = item.platforms.map((val) => {
           return { platform: val };
         });
+        await strapi.services["library-games"].create(item);
       }
-
-      await knex.batchInsert("library_games", data);
-      const result = await strapi.query("library-games").find({ user: user_id });
+      const result = await strapi.query("library-games").findOne({ user: user_id });
+      result.platforms = flattenObjectNested(result.platforms, "platform");
       return sanitizeEntity(result, { model: strapi.models["library-games"] });
     }
   },
@@ -37,7 +36,6 @@ module.exports = {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
       const result = await strapi.query("library-games").find({ user: user_id });
-      console.log(result);
       return sanitizeEntity(result, { model: strapi.models["library-games"] });
     }
   },
