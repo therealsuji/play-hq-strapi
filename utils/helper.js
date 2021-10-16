@@ -21,7 +21,6 @@ const sanitizeUser = (user) => {
 
 const flattenObjectNested = (obj, key) => {
   return _.flatMap(obj, (val) => {
-    console.log(val[key]);
     return val[key];
   });
 };

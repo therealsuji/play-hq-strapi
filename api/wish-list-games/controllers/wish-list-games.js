@@ -2,17 +2,17 @@ const { sanitizeEntity } = require("strapi-utils");
 const { flattenObjectNested } = require("../../../utils/helper");
 
 module.exports = {
-  async create(ctx) {
-    if (!ctx.is("multipart")) {
-      const body = ctx.request.body;
-      body.platforms = body.platforms.map((val) => {
-        return { platform: val };
-      });
-      let result = await strapi.services["wish-list-games"].create(body);
-      result.platforms = flattenObjectNested(result.platforms, "platform");
-      return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
-    }
-  },
+  // async create(ctx) {
+  //   if (!ctx.is("multipart")) {
+  //     const body = ctx.request.body;
+  //     body.platforms = body.platforms.map((val) => {
+  //       return { platform: val };
+  //     });
+  //     let result = await strapi.services["wish-list-games"].create(body);
+  //     result.platforms = flattenObjectNested(result.platforms, "platform");
+  //     return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
+  //   }
+  // },
 
   async set(ctx) {
     if (!ctx.is("multipart")) {
@@ -32,6 +32,7 @@ module.exports = {
       return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
     }
   },
+
   async find(ctx) {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
