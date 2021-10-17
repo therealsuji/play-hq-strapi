@@ -7,21 +7,16 @@ module.exports = {
 
     let data = {};
     if (body.genres) {
-      data.pref_genres = body.genres.map((val) => {
-        return {
-          genre: val,
-        };
-      });
+      data.pref_genres = body.genres;
     }
     if (body.release_dates) {
       data.pref_release_dates =  body.release_dates;
     }
     if (body.platforms) {
-      data.pref_platforms = body.platforms.map((val) => {
-        return { platform: val };
-      });
+      data.pref_platforms = body.platforms;
     }
     const user = await strapi.query("user", "users-permissions").update({ id }, data);
+    console.log(user);
     return sanitizeUser(user);
   },
 

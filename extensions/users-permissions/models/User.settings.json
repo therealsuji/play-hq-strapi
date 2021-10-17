@@ -62,16 +62,6 @@
     "phone_number": {
       "type": "string"
     },
-    "pref_genres": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.genre"
-    },
-    "pref_platforms": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.platform"
-    },
     "location": {
       "type": "component",
       "repeatable": false,
@@ -91,6 +81,12 @@
       "type": "component",
       "repeatable": true,
       "component": "types.pref-release-dates"
+    },
+    "pref_genres": {
+      "collection": "genres"
+    },
+    "pref_platforms": {
+      "collection": "platforms"
     }
   }
 }

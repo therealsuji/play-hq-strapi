@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/16/2021 12:16:00 PM"
+    "x-generation-date": "10/17/2021 1:17:26 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6981,12 +6981,6 @@
                 "phone_number": {
                   "type": "string"
                 },
-                "pref_genres": {
-                  "type": "component"
-                },
-                "pref_platforms": {
-                  "type": "component"
-                },
                 "location": {
                   "type": "component"
                 },
@@ -7001,6 +6995,18 @@
                 },
                 "pref_release_dates": {
                   "type": "component"
+                },
+                "pref_genres": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pref_platforms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -7118,89 +7124,6 @@
           "phone_number": {
             "type": "string"
           },
-          "pref_genres": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "genre": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "image_background": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "pref_platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
           "location": {
             "type": "object",
             "required": [
@@ -7249,6 +7172,67 @@
                 "to_date": {
                   "type": "string",
                   "format": "date"
+                }
+              }
+            }
+          },
+          "pref_genres": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "image_background": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "pref_platforms": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "platform_name": {
+                  "type": "string",
+                  "enum": [
+                    "PLAYSTATION",
+                    "XBOX",
+                    "NINTENDO"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
                 }
               }
             }
@@ -7297,89 +7281,6 @@
           "phone_number": {
             "type": "string"
           },
-          "pref_genres": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "genre": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "image_background": {
-                      "type": "string"
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "pref_platforms": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
           "location": {
             "type": "object",
             "required": [
@@ -7430,6 +7331,18 @@
                   "format": "date"
                 }
               }
+            }
+          },
+          "pref_genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pref_platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "created_by": {

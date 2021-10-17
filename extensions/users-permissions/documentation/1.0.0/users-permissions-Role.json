@@ -564,12 +564,6 @@
                 "phone_number": {
                   "type": "string"
                 },
-                "pref_genres": {
-                  "type": "component"
-                },
-                "pref_platforms": {
-                  "type": "component"
-                },
                 "location": {
                   "type": "component"
                 },
@@ -584,6 +578,18 @@
                 },
                 "pref_release_dates": {
                   "type": "component"
+                },
+                "pref_genres": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pref_platforms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

@@ -22,13 +22,9 @@ module.exports = {
       const data = body.list;
       for (let item of data) {
         item.user = user_id;
-        item.platforms = item.platforms.map((val) => {
-          return { platform: val };
-        });
         await strapi.services["wish-list-games"].create(item);
       }
       const result = await strapi.query("wish-list-games").findOne({ user: user_id });
-      result.platforms = flattenObjectNested(result.platforms, "platform");
       return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
     }
   },

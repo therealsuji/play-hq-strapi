@@ -21,14 +21,10 @@ module.exports = {
       await strapi.query("library-games").delete({ user: user_id });
       const data = body.list;
       for (let item of data) {
-        item.user = user_id;
-        item.platforms = item.platforms.map((val) => {
-          return { platform: val };
-        });
+        item.user = user_id; 
         await strapi.services["library-games"].create(item);
       }
       const result = await strapi.query("library-games").findOne({ user: user_id });
-      result.platforms = flattenObjectNested(result.platforms, "platform");
       return sanitizeEntity(result, { model: strapi.models["library-games"] });
     }
   },
