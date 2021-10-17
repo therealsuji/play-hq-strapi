@@ -34,10 +34,7 @@
       "required": true
     },
     "platforms": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.platform",
-      "required": true
+      "collection": "platforms"
     }
   }
 }

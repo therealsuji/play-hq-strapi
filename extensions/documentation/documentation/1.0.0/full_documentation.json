@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/16/2021 12:01:16 PM"
+    "x-generation-date": "10/16/2021 12:16:00 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6371,7 +6371,6 @@
           "platforms": {
             "type": "array",
             "items": {
-              "type": "object",
               "required": [
                 "id"
               ],
@@ -6379,35 +6378,25 @@
                 "id": {
                   "type": "string"
                 },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
+                "name": {
+                  "type": "string"
+                },
+                "platform_name": {
+                  "type": "string",
+                  "enum": [
+                    "PLAYSTATION",
+                    "XBOX",
+                    "NINTENDO"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
                 }
               }
             }
@@ -6813,8 +6802,7 @@
           "title",
           "box_cover",
           "api_id",
-          "release_date",
-          "platforms"
+          "release_date"
         ],
         "properties": {
           "id": {
@@ -6836,7 +6824,6 @@
           "platforms": {
             "type": "array",
             "items": {
-              "type": "object",
               "required": [
                 "id"
               ],
@@ -6844,35 +6831,25 @@
                 "id": {
                   "type": "string"
                 },
-                "platform": {
-                  "required": [
-                    "id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
-                    },
-                    "published_at": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
+                "name": {
+                  "type": "string"
+                },
+                "platform_name": {
+                  "type": "string",
+                  "enum": [
+                    "PLAYSTATION",
+                    "XBOX",
+                    "NINTENDO"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
                 }
               }
             }

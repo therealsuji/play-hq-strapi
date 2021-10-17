@@ -30,9 +30,7 @@
       "type": "integer"
     },
     "platforms": {
-      "type": "component",
-      "repeatable": true,
-      "component": "types.platform"
+      "collection": "platforms"
     }
   }
 }
