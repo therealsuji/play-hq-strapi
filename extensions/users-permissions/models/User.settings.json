@@ -87,6 +87,9 @@
     },
     "pref_platforms": {
       "collection": "platforms"
+    },
+    "full_name": {
+      "type": "string"
     }
   }
 }

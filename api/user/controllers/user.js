@@ -10,7 +10,7 @@ module.exports = {
       data.pref_genres = body.genres;
     }
     if (body.release_dates) {
-      data.pref_release_dates =  body.release_dates;
+      data.pref_release_dates = body.release_dates;
     }
     if (body.platforms) {
       data.pref_platforms = body.platforms;
@@ -30,8 +30,11 @@ module.exports = {
     if (body.phone_number) {
       data.phone_number = body.phone_number;
     }
-    if (body.name) {
-      data.name = body.name;
+    if (body.full_name) {
+      data.full_name = body.full_name;
+    }
+    if (body.display_name) {
+      data.display_name = body.display_name;
     }
     // This sets the user onboarding status to true
     data.setupDone = true;

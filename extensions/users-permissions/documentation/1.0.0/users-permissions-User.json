@@ -1366,6 +1366,9 @@
                 }
               }
             }
+          },
+          "full_name": {
+            "type": "string"
           }
         }
       },
@@ -1474,6 +1477,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "full_name": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
