@@ -1,8 +1,8 @@
 "use strict";
 
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
-const { STATES } = require("../../../utils/constants");
-const { sendNotificationToDevice, sendNotificationToUsers } = require("../../../utils/notifications");
+const { STATES, NOTIFICATION_TYPE } = require("../../../utils/constants");
+const { sendNotificationToDevice, sendNotificationToUsers } = require("../../../utils/notifications-helper");
 
 module.exports = {
   async create(ctx) {
@@ -56,6 +56,7 @@ module.exports = {
     const orders = await strapi.services["order-sales"].find({
       "sell_game.id": order_id,
       status: STATES.NOT_COMPLETE,
+      ...ctx.query
     });
 
     return orders.map((entity) => sanitizeEntity(entity, { model: strapi.models["order-sales"] }));
@@ -98,7 +99,8 @@ module.exports = {
     // send notification to buyer to renegotiate
     sendNotificationToDevice(
       updatedOrder.user,
-      "Your order has been cancelled the seller was not happy with your new price, Create a new order to proceed"
+      "Your order has been cancelled the seller was not happy with your new price, Create a new order to proceed",
+      NOTIFICATION_TYPE.DECLINED
     );
 
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
@@ -128,7 +130,8 @@ module.exports = {
     // send notification to buyer
     sendNotificationToDevice(
       updatedOrder.user,
-      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been updated`
+      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been updated`,
+      NOTIFICATION_TYPE.INFO
     );
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });
   },
@@ -160,7 +163,8 @@ module.exports = {
     // send notification to buyer about getting confirmed
     sendNotificationToDevice(
       updatedOrder.user,
-      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been confirmed`
+      `Hey your order with ${updatedOrder.sell_game.games[0].title} has been confirmed`,
+      NOTIFICATION_TYPE.ACCEPTED
     );
 
     /*UPDATING OTHER ORDERS FOR THE SELECTED SALE*/
@@ -175,7 +179,7 @@ module.exports = {
     // send notification to other buyers about not getting selected
     const other_user_ids = all_orders.map((order) => order.id != updatedOrder.id);
     if (other_user_ids.length) {
-      sendNotificationToUsers(other_user_ids, `${sale.games[0].title} has been canceled`);
+      sendNotificationToUsers(other_user_ids, `${sale.games[0].title} has been canceled`, NOTIFICATION_TYPE.DECLINED);
     }
 
     return sanitizeEntity(updatedOrder, { model: strapi.models["order-sales"] });

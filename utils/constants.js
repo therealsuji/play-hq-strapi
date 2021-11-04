@@ -7,4 +7,11 @@ const STATES = {
   NOT_SELECTED: "NOT_SELECTED",
 };
 
-module.exports = { STATES };
+const NOTIFICATION_TYPE = {
+  INFO: "INFO",
+  WARNING: "WARNING",
+  ACCEPTED: "ACCEPTED",
+  DECLINED: "DECLINED"
+};
+
+module.exports = { STATES, NOTIFICATION_TYPE };

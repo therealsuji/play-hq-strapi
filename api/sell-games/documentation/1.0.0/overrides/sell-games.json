@@ -25,6 +25,28 @@
         "description": "Get a list of sales by game id",
         "summary": "",
         "tags": ["Sell-games"],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ],
         "responses": {
           "200": {
             "description": "Retrieve sell-games document(s)",

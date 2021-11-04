@@ -1,9 +1,9 @@
 "use strict";
 
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
-const { STATES } = require("../../../utils/constants");
+const { STATES, NOTIFICATION_TYPE } = require("../../../utils/constants");
 const _ = require("lodash");
-const { sendNotificationToUsers } = require("../../../utils/notifications.js");
+const { sendNotificationToUsers } = require("../../../utils/notifications-helper.js");
 const { create: createGame } = require("../../games/services/games");
 const { flattenObjectNested } = require("../../../utils/helper");
 const { formatSellGame } = require("../helper");
@@ -79,7 +79,7 @@ module.exports = {
     // send notification to all buyers about order cancelling
     const user_ids = all_order.map((order) => order.user);
     if (user_ids.length) {
-      sendNotificationToUsers(user_ids, `${sale.games[0].title} has been canceled`);
+      sendNotificationToUsers(user_ids, `${sale.games[0].title} has been canceled`, NOTIFICATION_TYPE.WARNING);
     }
 
     return sanitizeEntity(updated_sale, { model: strapi.models["sell-games"] });
@@ -87,7 +87,7 @@ module.exports = {
 
   async getSalesByGame(ctx) {
     let game_id = ctx.params.id;
-    let available_sales = await strapi.services["sell-games"].find({ games: game_id });
+    let available_sales = await strapi.services["sell-games"].find({ games: game_id, ...ctx.query });
     available_sales = available_sales.map(sale => formatSellGame(sale));
     return sanitizeEntity(available_sales, { model: strapi.models["sell-games"] });
   },
@@ -96,7 +96,7 @@ module.exports = {
   async getGamesFromWishList(ctx) {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
-      const result = await strapi.query("wish-list-games").find({ user: user_id });
+      const result = await strapi.query("wish-list-games").find({ user: user_id, ...ctx.query });
       const game_ids = [];
       for (const game of result) {
         game_ids.push(game.game.id);
@@ -106,11 +106,11 @@ module.exports = {
       return sanitizeEntity(sales, { model: strapi.models["sell-games"] });
     }
   },
-  
+
   async getGamesFromLibraryGames(ctx) {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
-      const result = await strapi.query("library-games").find({ user: user_id });
+      const result = await strapi.query("library-games").find({ user: user_id, ...ctx.query });
       const game_ids = [];
       for (const game of result) {
         game_ids.push(game.game.id);

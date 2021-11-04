@@ -36,7 +36,7 @@ module.exports = {
   async find(ctx) {
     if (!ctx.is("multipart")) {
       const user_id = ctx.state.user.id;
-      const result = await strapi.query("wish-list-games").findOne({ user: user_id }, ["game.platforms", "game.genres"]);
+      const result = await strapi.query("wish-list-games").find({ user: user_id, ...ctx.query }, ["game.platforms", "game.genres"]);
       return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
     }
   },
