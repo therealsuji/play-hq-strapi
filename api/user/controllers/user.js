@@ -16,7 +16,6 @@ module.exports = {
       data.pref_platforms = body.platforms;
     }
     const user = await strapi.query("user", "users-permissions").update({ id }, data);
-    console.log(user);
     return sanitizeUser(user);
   },
 

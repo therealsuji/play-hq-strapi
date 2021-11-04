@@ -18,6 +18,22 @@
     },
     {
       "method": "GET",
+      "path": "/sell-games/get-games-from-wish-list",
+      "handler": "sell-games.getGamesFromWishList",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sell-games/get-games-from-library-games",
+      "handler": "sell-games.getGamesFromLibraryGames",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/sell-games/:id",
       "handler": "sell-games.findOne",
       "config": {
@@ -26,8 +42,16 @@
     },
     {
       "method": "GET",
-      "path": "/cancel-sale/:id",
+      "path": "/sell-games/cancel/:id",
       "handler": "sell-games.cancelSale",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sell-games/get-sales-by-game/:id",
+      "handler": "sell-games.getSalesByGame",
       "config": {
         "policies": []
       }

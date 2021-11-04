@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_types_statuses",
+  "info": {
+    "name": "status",
+    "icon": "ambulance"
+  },
+  "options": {},
+  "attributes": {
+    "OrderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "COMPLETED",
+        "NOT_COMPLETE",
+        "CONFIRMED",
+        "DISPATCHED",
+        "NOT_SELECTED",
+        "CANCELLED"
+      ]
+    }
+  }
+}

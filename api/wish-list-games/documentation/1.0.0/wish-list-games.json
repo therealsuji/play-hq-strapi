@@ -600,93 +600,66 @@
     "schemas": {
       "Wish-list-games": {
         "required": [
-          "id",
-          "title",
-          "box_cover",
-          "api_id",
-          "release_date"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "box_cover": {
-            "type": "string"
-          },
-          "api_id": {
-            "type": "integer"
-          },
-          "release_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "platform_name": {
-                  "type": "string",
-                  "enum": [
-                    "PLAYSTATION",
-                    "XBOX",
-                    "NINTENDO"
-                  ]
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "game": {
+            "required": [
+              "id",
+              "title",
+              "api_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "api_id": {
+                "type": "integer"
+              },
+              "box_cover": {
+                "type": "string"
+              },
+              "platforms": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "genres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "release_date": {
+                "type": "string"
+              },
+              "background_image": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
         }
       },
       "NewWish-list-games": {
-        "required": [
-          "title",
-          "box_cover",
-          "api_id",
-          "release_date"
-        ],
         "properties": {
           "user": {
             "type": "string"
           },
-          "title": {
+          "game": {
             "type": "string"
-          },
-          "box_cover": {
-            "type": "string"
-          },
-          "api_id": {
-            "type": "integer"
-          },
-          "release_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "platforms": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "created_by": {
             "type": "string"

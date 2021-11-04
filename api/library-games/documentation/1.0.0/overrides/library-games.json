@@ -35,7 +35,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/NewLibrary-games"
+                      "$ref": "#/components/schemas/library-games-list"
                     }
                   }
                 }
@@ -50,23 +50,45 @@
     "schemas": {
       "NewLibrary-games": {
         "properties": {
-          "title": {
-            "type": "string"
-          },
-          "box_cover": {
-            "type": "string"
-          },
-          "release_date": {
-            "type": "string",
-            "format": "date"
-          },
-          "api_id": {
-            "type": "integer"
-          },
-          "platforms": {
-            "type": "array", 
+          "required": ["title", "api_id", "box_cover", "platforms", "genres", "release_date", "background_image"],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "api_id": {
+              "type": "integer"
+            },
+            "box_cover": {
+              "type": "string"
+            },
+            "platforms": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "genres": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "release_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "background_image": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "library-games-list": {
+        "properties": {
+          "list": {
+            "type": "array",
             "items": {
-              "type": "number"
+              "$ref": "#/components/schemas/NewLibrary-games"
             }
           }
         }

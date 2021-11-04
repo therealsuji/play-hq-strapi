@@ -17,24 +17,8 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "box_cover": {
-      "type": "string",
-      "required": true
-    },
-    "api_id": {
-      "type": "integer",
-      "required": true
-    },
-    "release_date": {
-      "type": "date",
-      "required": true
-    },
-    "platforms": {
-      "collection": "platforms"
+    "game": {
+      "model": "games"
     }
   }
 }

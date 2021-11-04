@@ -4,8 +4,38 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const { STATES } = require("../../../utils/constants");
 const _ = require("lodash");
 const { sendNotificationToUsers } = require("../../../utils/notifications.js");
+const { create: createGame } = require("../../games/services/games");
+const { flattenObjectNested } = require("../../../utils/helper");
+const { formatSellGame } = require("../helper");
 
 module.exports = {
+
+
+
+  async create(ctx) {
+    if (!ctx.is("multipart")) {
+      const body = ctx.request.body;
+      // All orders are set to NOT_COMPLETE by default
+      body.status = STATES.NOT_COMPLETE;
+      let gameIds = [];
+      const game_conditions = [];
+      for (const game of body.games) {
+        const _game = await createGame(game.game);
+        gameIds.push(_game.id);
+        game_conditions.push({
+          game: _game.id,
+          condition: game.condition
+        })
+      }
+      body.games = gameIds;
+      body.game_conditions = game_conditions;
+      let result = await strapi.services["sell-games"].create(body);
+      result = formatSellGame(result)
+
+      return sanitizeEntity(result, { model: strapi.models["sell-games"] });
+    }
+  },
+
   /**
    * cancel the sale and the related orders with it
    */
@@ -53,5 +83,41 @@ module.exports = {
     }
 
     return sanitizeEntity(updated_sale, { model: strapi.models["sell-games"] });
+  },
+
+  async getSalesByGame(ctx) {
+    let game_id = ctx.params.id;
+    let available_sales = await strapi.services["sell-games"].find({ games: game_id });
+    available_sales = available_sales.map(sale => formatSellGame(sale));
+    return sanitizeEntity(available_sales, { model: strapi.models["sell-games"] });
+  },
+
+
+  async getGamesFromWishList(ctx) {
+    if (!ctx.is("multipart")) {
+      const user_id = ctx.state.user.id;
+      const result = await strapi.query("wish-list-games").find({ user: user_id });
+      const game_ids = [];
+      for (const game of result) {
+        game_ids.push(game.game.id);
+      }
+      let sales = await strapi.query("sell-games").find({ games: game_ids });
+      sales = sales.map(sale => formatSellGame(sale));
+      return sanitizeEntity(sales, { model: strapi.models["sell-games"] });
+    }
+  },
+  
+  async getGamesFromLibraryGames(ctx) {
+    if (!ctx.is("multipart")) {
+      const user_id = ctx.state.user.id;
+      const result = await strapi.query("library-games").find({ user: user_id });
+      const game_ids = [];
+      for (const game of result) {
+        game_ids.push(game.game.id);
+      }
+      let sales = await strapi.query("sell-games").find({ games: game_ids });
+      sales = sales.map(sale => formatSellGame(sale));
+      return sanitizeEntity(sales, { model: strapi.models["sell-games"] });
+    }
   },
 };

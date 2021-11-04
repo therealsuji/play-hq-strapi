@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/order-sales": {
+    "/games": {
       "get": {
         "deprecated": false,
-        "description": "Find all the order-sales's records",
+        "description": "Find all the games's records",
         "responses": {
           "200": {
-            "description": "Retrieve order-sales document(s)",
+            "description": "Retrieve games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Games"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
+          "Games"
         ],
         "parameters": [
           {
@@ -195,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new order-sales record",
+        "description": "Create a new games record",
         "responses": {
           "200": {
-            "description": "Retrieve order-sales document(s)",
+            "description": "Retrieve games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Games"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
+          "Games"
         ],
         "requestBody": {
           "description": "",
@@ -252,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOrder-sales"
+                "$ref": "#/components/schemas/NewGames"
               }
             }
           }
         }
       }
     },
-    "/get-orders/{id}": {
+    "/games/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of games documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve games document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,369 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/cancel-order-buyer/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-sales"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/cancel-order-seller/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-sales"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/confirm-order/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-sales"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/update-order/{id}": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-sales"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/order-sales/count": {
-      "get": {
-        "deprecated": false,
-        "description": "Retrieve the numver of order-sales documents",
-        "responses": {
-          "200": {
-            "description": "Retrieve order-sales document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Order-sales"
+          "Games"
         ],
         "parameters": []
       }
     },
-    "/order-sales/{id}": {
+    "/games/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one order-sales record",
+        "description": "Find one games record",
         "responses": {
           "200": {
-            "description": "Retrieve order-sales document(s)",
+            "description": "Retrieve games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Games"
                 }
               }
             }
@@ -711,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
+          "Games"
         ],
         "parameters": [
           {
@@ -728,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single order-sales record",
+        "description": "Update a single games record",
         "responses": {
           "200": {
-            "description": "Retrieve order-sales document(s)",
+            "description": "Retrieve games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Games"
                 }
               }
             }
@@ -777,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
+          "Games"
         ],
         "requestBody": {
           "description": "",
@@ -785,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewOrder-sales"
+                "$ref": "#/components/schemas/NewGames"
               }
             }
           }
@@ -805,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single order-sales record",
+        "description": "Delete a single games record",
         "responses": {
           "200": {
-            "description": "deletes a single order-sales based on the ID supplied",
+            "description": "deletes a single games based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -851,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Order-sales"
+          "Games"
         ],
         "parameters": [
           {
@@ -870,114 +514,128 @@
   },
   "components": {
     "schemas": {
-      "Order-sales": {
+      "Games": {
         "required": [
-          "id"
+          "id",
+          "title",
+          "api_id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "new_price": {
-            "type": "number"
+          "title": {
+            "type": "string"
           },
-          "sell_game": {
-            "required": [
-              "id",
-              "price",
-              "remarks",
-              "negotiable",
-              "location"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "price": {
-                "type": "number"
-              },
-              "remarks": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "COMPLETED",
-                  "CANCELLED",
-                  "CONFIRMED",
-                  "NOT_COMPLETE",
-                  "DISPATCHED"
-                ]
-              },
-              "negotiable": {
-                "type": "boolean"
-              },
-              "location": {
-                "type": "component"
-              },
-              "user": {
-                "type": "string"
-              },
-              "games": {
-                "type": "array",
-                "items": {
+          "api_id": {
+            "type": "integer"
+          },
+          "box_cover": {
+            "type": "string"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "platform_name": {
+                  "type": "string",
+                  "enum": [
+                    "PLAYSTATION",
+                    "XBOX",
+                    "NINTENDO"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
-              },
-              "game_conditions": {
-                "type": "component"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
-          "status": {
-            "type": "string",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "CONFIRMED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
+          "genres": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "image_background": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "published_at": {
+          "release_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
+          },
+          "background_image": {
+            "type": "string"
           }
         }
       },
-      "NewOrder-sales": {
+      "NewGames": {
+        "required": [
+          "title",
+          "api_id"
+        ],
         "properties": {
-          "new_price": {
-            "type": "number"
-          },
-          "sell_game": {
+          "title": {
             "type": "string"
           },
-          "user": {
+          "api_id": {
+            "type": "integer"
+          },
+          "box_cover": {
             "type": "string"
           },
-          "status": {
-            "type": "string",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "CONFIRMED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "published_at": {
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "release_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
+          },
+          "background_image": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -989,5 +647,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Games"
+    }
+  ]
 }

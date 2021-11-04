@@ -1280,7 +1280,7 @@
           "name": {
             "type": "string"
           },
-          "setupDone": {
+          "setup_done": {
             "type": "boolean",
             "default": false
           },
@@ -1437,7 +1437,7 @@
           "name": {
             "type": "string"
           },
-          "setupDone": {
+          "setup_done": {
             "type": "boolean",
             "default": false
           },

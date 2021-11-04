@@ -316,6 +316,120 @@
         "parameters": []
       }
     },
+    "/sell-games/get-games-from-wish-list": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve sell-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sell-games"
+        ],
+        "parameters": []
+      }
+    },
+    "/sell-games/get-games-from-library-games": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve sell-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sell-games"
+        ],
+        "parameters": []
+      }
+    },
     "/sell-games/{id}": {
       "get": {
         "deprecated": false,
@@ -524,13 +638,81 @@
         ]
       }
     },
-    "/cancel-sale/{id}": {
+    "/sell-games/cancel/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve sell-games document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sell-games"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/sell-games/get-sales-by-game/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -599,9 +781,9 @@
         "required": [
           "id",
           "price",
+          "remarks",
           "negotiable",
-          "location",
-          "games"
+          "location"
         ],
         "properties": {
           "id": {
@@ -650,50 +832,97 @@
           "games": {
             "type": "array",
             "items": {
-              "type": "object",
               "required": [
                 "id",
+                "title",
                 "api_id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
                 "title": {
                   "type": "string"
                 },
-                "platform": {
+                "api_id": {
+                  "type": "integer"
+                },
+                "box_cover": {
+                  "type": "string"
+                },
+                "platforms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "genres": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "release_date": {
+                  "type": "string"
+                },
+                "background_image": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "game_conditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "game": {
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "api_id"
                   ],
                   "properties": {
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "title": {
                       "type": "string"
                     },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
+                    "api_id": {
+                      "type": "integer"
                     },
-                    "published_at": {
+                    "box_cover": {
+                      "type": "string"
+                    },
+                    "platforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "genres": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "release_date": {
+                      "type": "string"
+                    },
+                    "background_image": {
                       "type": "string"
                     },
                     "created_by": {
@@ -704,12 +933,17 @@
                     }
                   }
                 },
-                "api_id": {
-                  "type": "integer"
+                "condition": {
+                  "type": "string",
+                  "enum": [
+                    "MINT_SEALED",
+                    "VERY_NEW",
+                    "KINDA_USED",
+                    "PLAYABLE"
+                  ]
                 }
               }
-            },
-            "minItems": 1
+            }
           },
           "published_at": {
             "type": "string",
@@ -720,9 +954,9 @@
       "NewSell-games": {
         "required": [
           "price",
+          "remarks",
           "negotiable",
-          "location",
-          "games"
+          "location"
         ],
         "properties": {
           "price": {
@@ -765,53 +999,61 @@
               }
             }
           },
+          "user": {
+            "type": "string"
+          },
           "games": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "game_conditions": {
             "type": "array",
             "items": {
               "type": "object",
               "required": [
-                "id",
-                "api_id"
+                "id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "game_condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                },
-                "box_image": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "platform": {
+                "game": {
                   "required": [
-                    "id"
+                    "id",
+                    "title",
+                    "api_id"
                   ],
                   "properties": {
                     "id": {
                       "type": "string"
                     },
-                    "name": {
+                    "title": {
                       "type": "string"
                     },
-                    "platform_name": {
-                      "type": "string",
-                      "enum": [
-                        "PLAYSTATION",
-                        "XBOX",
-                        "NINTENDO"
-                      ]
+                    "api_id": {
+                      "type": "integer"
                     },
-                    "published_at": {
+                    "box_cover": {
+                      "type": "string"
+                    },
+                    "platforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "genres": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "release_date": {
+                      "type": "string"
+                    },
+                    "background_image": {
                       "type": "string"
                     },
                     "created_by": {
@@ -822,15 +1064,17 @@
                     }
                   }
                 },
-                "api_id": {
-                  "type": "integer"
+                "condition": {
+                  "type": "string",
+                  "enum": [
+                    "MINT_SEALED",
+                    "VERY_NEW",
+                    "KINDA_USED",
+                    "PLAYABLE"
+                  ]
                 }
               }
-            },
-            "minItems": 1
-          },
-          "user": {
-            "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

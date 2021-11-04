@@ -17,7 +17,8 @@
       "required": true
     },
     "remarks": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "status": {
       "type": "enumeration",
@@ -40,17 +41,18 @@
       "component": "types.location",
       "required": true
     },
-    "games": {
-      "type": "component",
-      "repeatable": true,
-      "component": "games.game-status",
-      "required": true,
-      "min": 1
-    },
     "user": {
       "private": true,
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "games": {
+      "collection": "games"
+    },
+    "game_conditions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "types.game-condition"
     }
   }
 }

@@ -573,7 +573,7 @@
                 "name": {
                   "type": "string"
                 },
-                "setupDone": {
+                "setup_done": {
                   "type": "boolean"
                 },
                 "pref_release_dates": {

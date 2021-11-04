@@ -12,19 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "COMPLETED",
-        "NOT_COMPLETE",
-        "CONFIRMED",
-        "DISPATCHED",
-        "NOT_SELECTED",
-        "CANCELLED"
-      ],
-      "default": "NOT_COMPLETE",
-      "required": true
-    },
     "new_price": {
       "type": "float",
       "required": false
@@ -36,6 +23,16 @@
       "private": true,
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "COMPLETED",
+        "CANCELLED",
+        "CONFIRMED",
+        "NOT_COMPLETE",
+        "DISPATCHED"
+      ]
     }
   }
 }

@@ -16,6 +16,7 @@
         "policies": []
       }
     },
+    
     {
       "method": "GET",
       "path": "/wish-list-games/:id",
@@ -29,7 +30,7 @@
       "path": "/wish-list-games",
       "handler": "wish-list-games.create",
       "config": {
-        "policies": ["global::validate-user"]
+        "policies": ["global::validate-user", "global::request-validate"]
       }
     },
     {

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_types_game_conditions",
+  "info": {
+    "name": "GameCondition",
+    "icon": "american-sign-language-interpreting"
+  },
+  "options": {},
+  "attributes": {
+    "game": {
+      "model": "games"
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "MINT_SEALED",
+        "VERY_NEW",
+        "KINDA_USED",
+        "PLAYABLE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "name": "Games",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "api_id": {
+      "type": "integer",
+      "required": true
+    },
+    "box_cover": {
+      "type": "string"
+    },
+    "platforms": {
+      "collection": "platforms"
+    },
+    "genres": {
+      "collection": "genres"
+    },
+    "release_date": {
+      "type": "date"
+    },
+    "background_image": {
+      "type": "string"
+    }
+  }
+}

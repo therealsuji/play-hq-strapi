@@ -31,14 +31,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/NewWish-list-games"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/wish-list-games-list"
               }
             }
           }
@@ -49,24 +42,44 @@
   "components": {
     "schemas": {
       "NewWish-list-games": {
+        "required": ["title", "api_id", "box_cover", "platforms", "genres", "release_date", "background_image"],
         "properties": {
           "title": {
             "type": "string"
           },
+          "api_id": {
+            "type": "integer"
+          },
           "box_cover": {
             "type": "string"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
           },
           "release_date": {
             "type": "string",
             "format": "date"
           },
-          "api_id": {
-            "type": "integer"
-          },
-          "platforms": {
-            "type": "array", 
+          "background_image": {
+            "type": "string"
+          }
+        }
+      },
+      "wish-list-games-list": {
+        "properties": {
+          "list": {
+            "type": "array",
             "items": {
-              "type": "number"
+              "$ref": "#/components/schemas/NewWish-list-games"
             }
           }
         }
