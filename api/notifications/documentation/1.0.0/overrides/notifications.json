@@ -1,0 +1,73 @@
+{
+  "paths": {
+    "/get-notifications-for-user": {
+      "get": {
+        "deprecated": false,
+        "description": "Get all Notifications for user",
+        "responses": {
+          "200": {
+            "description": "Get all Notifications for user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notifications"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": ["Notifications"],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Notifications": {
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["INFO", "WARNING", "ACCEPTED", "DECLINED"]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Notifications"
+    }
+  ]
+}

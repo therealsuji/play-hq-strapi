@@ -20,17 +20,6 @@
       "type": "text",
       "required": true
     },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "COMPLETED",
-        "CANCELLED",
-        "CONFIRMED",
-        "NOT_COMPLETE",
-        "DISPATCHED"
-      ],
-      "default": "NOT_COMPLETE"
-    },
     "negotiable": {
       "type": "boolean",
       "required": true
@@ -46,13 +35,17 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "games": {
-      "collection": "games"
-    },
-    "game_conditions": {
+    "game_details": {
       "type": "component",
       "repeatable": true,
-      "component": "types.game-condition"
+      "component": "games.sell-game-details"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
     }
   }
 }

@@ -650,6 +650,36 @@
                 "type": "string"
               }
             }
+          },
+          "platform": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "platform_name": {
+                "type": "string",
+                "enum": [
+                  "PLAYSTATION",
+                  "XBOX",
+                  "NINTENDO"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -659,6 +689,9 @@
             "type": "string"
           },
           "game": {
+            "type": "string"
+          },
+          "platform": {
             "type": "string"
           },
           "created_by": {

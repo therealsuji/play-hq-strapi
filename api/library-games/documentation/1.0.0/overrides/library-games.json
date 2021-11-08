@@ -12,11 +12,49 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLibrary-games"
+                "$ref": "#/components/schemas/library-games"
               }
             }
           }
         }
+      },
+      "get": {
+        "deprecated": false,
+        "description": "Get a users library games",
+        "responses": {
+          "200": {
+            "description": "Get a users library games",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/library-games-list"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
       }
     },
     "/library-games/set": {
@@ -31,14 +69,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/library-games-list"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/library-games-list"
               }
             }
           }
@@ -50,47 +81,62 @@
     "schemas": {
       "NewLibrary-games": {
         "properties": {
-          "required": ["title", "api_id", "box_cover", "platforms", "genres", "release_date", "background_image"],
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "api_id": {
+          "required": [
+            "title",
+            "api_id",
+            "box_cover",
+            "platforms",
+            "genres",
+            "release_date",
+            "background_image"
+          ],
+          "title": {
+            "type": "string"
+          },
+          "api_id": {
+            "type": "integer"
+          },
+          "box_cover": {
+            "type": "string"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
               "type": "integer"
-            },
-            "box_cover": {
-              "type": "string"
-            },
-            "platforms": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            "genres": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            "release_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "background_image": {
-              "type": "string"
             }
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "background_image": {
+            "type": "string"
+          }
+        }
+      },
+      "library-games": {
+        "properties": {
+          "game": {
+            "type": "object",
+            "$ref": "#/components/schemas/NewLibrary-games"
+          },
+          "platform": {
+            "type": "integer"
           }
         }
       },
       "library-games-list": {
-        "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NewLibrary-games"
-            }
-          }
+        "type": "array",
+        "items": {
+          "minItems": 1,
+          "type": "object",
+          "$ref": "#/components/schemas/library-games"
         }
       }
     }

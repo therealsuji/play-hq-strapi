@@ -19,6 +19,9 @@
     },
     "game": {
       "model": "games"
+    },
+    "platform": {
+      "model": "platforms"
     }
   }
 }

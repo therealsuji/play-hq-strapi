@@ -60,6 +60,110 @@
           }
         }
       }
+    },
+    "/sell-games/cancel/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Cancel a sale by id ",
+        "summary": "",
+        "tags": ["Sell-games"],
+        "responses": {
+          "200": {
+            "description": "Cancel a sale by id ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewSell-games"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sell-games/get-sales-from-wish-list": {
+      "get": {
+        "deprecated": false,
+        "description": "Get matching sales for current users wishlist ",
+        "summary": "",
+        "tags": ["Sell-games"],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get matching sales for current users wishlist ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sell-games-list"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sell-games/get-sales-from-library-games": {
+      "get": {
+        "deprecated": false,
+        "description": "Get matching sales for current users library games ",
+        "summary": "",
+        "tags": ["Sell-games"],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get matching sales for current users library games ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sell-games-list"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -137,7 +241,6 @@
         "items": {
           "minItems": 1,
           "type": "object",
-          "required": ["name"],
           "$ref": "#/components/schemas/NewSell-games"
         }
       }

@@ -3,10 +3,10 @@
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const { STATES, NOTIFICATION_TYPE } = require("../../../utils/constants");
 const { sendNotificationToDevice, sendNotificationToUsers } = require("../../../utils/notifications-helper");
+const { formatSellGame } = require("../../sell-games/helper");
 
 module.exports = {
   async create(ctx) {
-    let entity;
     if (!ctx.is("multipart")) {
       const body = ctx.request.body;
       const user_id = ctx.state.user.id;
@@ -35,9 +35,10 @@ module.exports = {
         return ctx.response.badRequest("A negotiable sale must have a new price");
       }
 
-      entity = await strapi.services["order-sales"].create(body);
+      let result = await strapi.services["order-sales"].create(body);
+      result.sell_game = formatSellGame(result.sell_game);
+      return sanitizeEntity(result, { model: strapi.models["order-sales"] });
     }
-    return sanitizeEntity(entity, { model: strapi.models["order-sales"] });
   },
 
   async getOrders(ctx) {
@@ -56,7 +57,7 @@ module.exports = {
     const orders = await strapi.services["order-sales"].find({
       "sell_game.id": order_id,
       status: STATES.NOT_COMPLETE,
-      ...ctx.query
+      ...ctx.query,
     });
 
     return orders.map((entity) => sanitizeEntity(entity, { model: strapi.models["order-sales"] }));

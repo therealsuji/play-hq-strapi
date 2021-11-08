@@ -12,11 +12,49 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWish-list-games"
+                "$ref": "#/components/schemas/wish-list-games"
               }
             }
           }
         }
+      },
+      "get": {
+        "deprecated": false,
+        "description": "Get a users wish-list-games",
+        "responses": {
+          "200": {
+            "description": "Get a users wish-list-games",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/wish-list-games-list"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
       }
     },
     "/wish-list-games/set": {
@@ -42,8 +80,16 @@
   "components": {
     "schemas": {
       "NewWish-list-games": {
-        "required": ["title", "api_id", "box_cover", "platforms", "genres", "release_date", "background_image"],
         "properties": {
+          "required": [
+            "title",
+            "api_id",
+            "box_cover",
+            "platforms",
+            "genres",
+            "release_date",
+            "background_image"
+          ],
           "title": {
             "type": "string"
           },
@@ -74,14 +120,22 @@
           }
         }
       },
-      "wish-list-games-list": {
+      "wish-list-games": {
         "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NewWish-list-games"
-            }
+          "game": {
+            "$ref": "#/components/schemas/NewWish-list-games"
+          },
+          "platform": {
+            "type": "integer"
           }
+        }
+      },
+      "wish-list-games-list": {
+        "type": "array",
+        "items": {
+          "minItems": 1,
+          "type": "object",
+          "$ref": "#/components/schemas/wish-list-games"
         }
       }
     }

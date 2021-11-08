@@ -316,7 +316,7 @@
         "parameters": []
       }
     },
-    "/sell-games/get-games-from-wish-list": {
+    "/sell-games/get-sales-from-wish-list": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -373,7 +373,7 @@
         "parameters": []
       }
     },
-    "/sell-games/get-games-from-library-games": {
+    "/sell-games/get-sales-from-library-games": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -706,7 +706,7 @@
         ]
       }
     },
-    "/sell-games/get-sales-by-game/{id}": {
+    "/sell-games/get-sales-by-game/{gameId}/{platformId}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -762,7 +762,17 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "gameId",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "platformId",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -795,17 +805,6 @@
           "remarks": {
             "type": "string"
           },
-          "status": {
-            "type": "string",
-            "default": "NOT_COMPLETE",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "CONFIRMED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
-          },
           "negotiable": {
             "type": "boolean"
           },
@@ -829,55 +828,7 @@
               }
             }
           },
-          "games": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "api_id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "box_cover": {
-                  "type": "string"
-                },
-                "platforms": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "genres": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "release_date": {
-                  "type": "string"
-                },
-                "background_image": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "game_conditions": {
+          "game_details": {
             "type": "array",
             "items": {
               "type": "object",
@@ -933,6 +884,36 @@
                     }
                   }
                 },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "condition": {
                   "type": "string",
                   "enum": [
@@ -944,6 +925,13 @@
                 }
               }
             }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "INACTIVE"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -964,17 +952,6 @@
           },
           "remarks": {
             "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "default": "NOT_COMPLETE",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "CONFIRMED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
           },
           "negotiable": {
             "type": "boolean"
@@ -1002,13 +979,7 @@
           "user": {
             "type": "string"
           },
-          "games": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "game_conditions": {
+          "game_details": {
             "type": "array",
             "items": {
               "type": "object",
@@ -1064,6 +1035,36 @@
                     }
                   }
                 },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "condition": {
                   "type": "string",
                   "enum": [
@@ -1075,6 +1076,13 @@
                 }
               }
             }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "INACTIVE"
+            ]
           },
           "published_at": {
             "type": "string",

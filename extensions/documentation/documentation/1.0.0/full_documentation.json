@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/05/2021 3:03:56 AM"
+    "x-generation-date": "11/08/2021 9:27:19 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1214,18 +1214,14 @@
     "/library-games": {
       "get": {
         "deprecated": false,
-        "description": "Find all the library-games's records",
+        "description": "Get a users library games",
         "responses": {
           "200": {
-            "description": "Retrieve library-games document(s)",
+            "description": "Get a users library games",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/library-games-list"
                 }
               }
             }
@@ -1277,128 +1273,12 @@
             "deprecated": false
           },
           {
-            "name": "_sort",
-            "in": "query",
-            "required": false,
-            "description": "Sort according to a specific field.",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
             "name": "_start",
             "in": "query",
             "required": false,
             "description": "Skip a specific number of entries (especially useful for pagination)",
             "schema": {
               "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "=",
-            "in": "query",
-            "required": false,
-            "description": "Get entries that matches exactly your input",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_ne",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are not equals to something",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lt",
-            "in": "query",
-            "required": false,
-            "description": "Get record that are lower than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are lower than or equal to a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gt",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than  or equal a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_contains",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_containss",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains (case sensitive) a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_in",
-            "in": "query",
-            "required": false,
-            "description": "Get records that matches any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_nin",
-            "in": "query",
-            "required": false,
-            "description": "Get records that doesn't match any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
             },
             "deprecated": false
           }
@@ -1463,7 +1343,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLibrary-games"
+                "$ref": "#/components/schemas/library-games"
               }
             }
           }
@@ -1795,14 +1675,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "properties": {
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/library-games-list"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/library-games-list"
               }
             }
           }
@@ -2123,17 +1996,16 @@
     "/get-notifications-for-user": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Get all Notifications for user",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Get all Notifications for user",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notifications"
                   }
                 }
               }
@@ -2174,7 +2046,28 @@
         "tags": [
           "Notifications"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
       }
     },
     "/notifications/{id}": {
@@ -2639,18 +2532,14 @@
     "/get-orders/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Get order by sale id",
         "responses": {
           "200": {
             "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/NewOrder-sales"
                 }
               }
             }
@@ -4071,21 +3960,17 @@
         "parameters": []
       }
     },
-    "/sell-games/get-games-from-wish-list": {
+    "/sell-games/get-sales-from-wish-list": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Get matching sales for current users wishlist ",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Get matching sales for current users wishlist ",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/sell-games-list"
                 }
               }
             }
@@ -4125,24 +4010,41 @@
         "tags": [
           "Sell-games"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
       }
     },
-    "/sell-games/get-games-from-library-games": {
+    "/sell-games/get-sales-from-library-games": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Get matching sales for current users library games ",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Get matching sales for current users library games ",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/sell-games-list"
                 }
               }
             }
@@ -4182,7 +4084,28 @@
         "tags": [
           "Sell-games"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          }
+        ]
       }
     },
     "/sell-games/{id}": {
@@ -4396,18 +4319,14 @@
     "/sell-games/cancel/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Cancel a sale by id ",
         "responses": {
           "200": {
-            "description": "Retrieve sell-games document(s)",
+            "description": "Cancel a sale by id ",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/NewSell-games"
                 }
               }
             }
@@ -4461,17 +4380,21 @@
         ]
       }
     },
-    "/sell-games/get-sales-by-game/{id}": {
+    "/sell-games/get-sales-by-game/{gameId}/{platformId}": {
       "get": {
         "deprecated": false,
-        "description": "Get a list of sales by game id",
+        "description": "",
         "responses": {
           "200": {
             "description": "Retrieve sell-games document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/sell-games-list"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -4513,24 +4436,24 @@
         ],
         "parameters": [
           {
-            "name": "_limit",
-            "in": "query",
-            "required": false,
-            "description": "Maximum number of results possible",
+            "name": "gameId",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
             "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
+              "type": "string"
+            }
           },
           {
-            "name": "_start",
-            "in": "query",
-            "required": false,
-            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "name": "platformId",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
             "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
+              "type": "string"
+            }
           }
         ]
       }
@@ -4724,18 +4647,14 @@
     "/wish-list-games": {
       "get": {
         "deprecated": false,
-        "description": "Find all the wish-list-games's records",
+        "description": "Get a users wish-list-games",
         "responses": {
           "200": {
-            "description": "Retrieve wish-list-games document(s)",
+            "description": "Get a users wish-list-games",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/wish-list-games-list"
                 }
               }
             }
@@ -4787,128 +4706,12 @@
             "deprecated": false
           },
           {
-            "name": "_sort",
-            "in": "query",
-            "required": false,
-            "description": "Sort according to a specific field.",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
             "name": "_start",
             "in": "query",
             "required": false,
             "description": "Skip a specific number of entries (especially useful for pagination)",
             "schema": {
               "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "=",
-            "in": "query",
-            "required": false,
-            "description": "Get entries that matches exactly your input",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_ne",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are not equals to something",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lt",
-            "in": "query",
-            "required": false,
-            "description": "Get record that are lower than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are lower than or equal to a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gt",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than  or equal a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_contains",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_containss",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains (case sensitive) a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_in",
-            "in": "query",
-            "required": false,
-            "description": "Get records that matches any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_nin",
-            "in": "query",
-            "required": false,
-            "description": "Get records that doesn't match any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
             },
             "deprecated": false
           }
@@ -4973,7 +4776,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWish-list-games"
+                "$ref": "#/components/schemas/wish-list-games"
               }
             }
           }
@@ -7796,6 +7599,36 @@
                 "type": "string"
               }
             }
+          },
+          "platform": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "platform_name": {
+                "type": "string",
+                "enum": [
+                  "PLAYSTATION",
+                  "XBOX",
+                  "NINTENDO"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -7810,46 +7643,53 @@
             "release_date",
             "background_image"
           ],
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "api_id": {
+          "title": {
+            "type": "string"
+          },
+          "api_id": {
+            "type": "integer"
+          },
+          "box_cover": {
+            "type": "string"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
               "type": "integer"
-            },
-            "box_cover": {
-              "type": "string"
-            },
-            "platforms": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            "genres": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            "release_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "background_image": {
-              "type": "string"
             }
+          },
+          "genres": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "release_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "background_image": {
+            "type": "string"
+          }
+        }
+      },
+      "library-games": {
+        "properties": {
+          "game": {
+            "type": "object",
+            "$ref": "#/components/schemas/NewLibrary-games"
+          },
+          "platform": {
+            "type": "integer"
           }
         }
       },
       "library-games-list": {
-        "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NewLibrary-games"
-            }
-          }
+        "type": "array",
+        "items": {
+          "minItems": 1,
+          "type": "object",
+          "$ref": "#/components/schemas/library-games"
         }
       },
       "Notifications": {
@@ -7871,84 +7711,6 @@
               "ACCEPTED",
               "DECLINED"
             ]
-          },
-          "user": {
-            "required": [
-              "id",
-              "username",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "username": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "password": {
-                "type": "string"
-              },
-              "resetPasswordToken": {
-                "type": "string"
-              },
-              "confirmationToken": {
-                "type": "string"
-              },
-              "confirmed": {
-                "type": "boolean"
-              },
-              "blocked": {
-                "type": "boolean"
-              },
-              "role": {
-                "type": "string"
-              },
-              "phone_number": {
-                "type": "string"
-              },
-              "location": {
-                "type": "component"
-              },
-              "notification_token": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "setup_done": {
-                "type": "boolean"
-              },
-              "pref_release_dates": {
-                "type": "component"
-              },
-              "pref_genres": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "pref_platforms": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "full_name": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           }
         }
       },
@@ -8006,16 +7768,6 @@
               "remarks": {
                 "type": "string"
               },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "COMPLETED",
-                  "CANCELLED",
-                  "CONFIRMED",
-                  "NOT_COMPLETE",
-                  "DISPATCHED"
-                ]
-              },
               "negotiable": {
                 "type": "boolean"
               },
@@ -8025,14 +7777,15 @@
               "user": {
                 "type": "string"
               },
-              "games": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "game_conditions": {
+              "game_details": {
                 "type": "component"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE"
+                ]
               },
               "published_at": {
                 "type": "string"
@@ -8067,10 +7820,7 @@
             "type": "number"
           },
           "sell_game": {
-            "type": "string"
-          },
-          "user": {
-            "type": "string"
+            "$ref": "#/components/schemas/sell-games-list"
           },
           "status": {
             "type": "string",
@@ -8081,240 +7831,6 @@
               "NOT_COMPLETE",
               "DISPATCHED"
             ]
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
-          }
-        }
-      },
-      "Platforms": {
-        "required": [
-          "id"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "platform_name": {
-            "type": "string",
-            "enum": [
-              "PLAYSTATION",
-              "XBOX",
-              "NINTENDO"
-            ]
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "NewPlatforms": {
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "platform_name": {
-            "type": "string",
-            "enum": [
-              "PLAYSTATION",
-              "XBOX",
-              "NINTENDO"
-            ]
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
-          }
-        }
-      },
-      "Sell-games": {
-        "required": [
-          "id",
-          "price",
-          "remarks",
-          "negotiable",
-          "location"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "remarks": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string",
-            "default": "NOT_COMPLETE",
-            "enum": [
-              "COMPLETED",
-              "CANCELLED",
-              "CONFIRMED",
-              "NOT_COMPLETE",
-              "DISPATCHED"
-            ]
-          },
-          "negotiable": {
-            "type": "boolean"
-          },
-          "location": {
-            "type": "object",
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "lat": {
-                "type": "number"
-              },
-              "long": {
-                "type": "number"
-              },
-              "address": {
-                "type": "string"
-              }
-            }
-          },
-          "games": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "api_id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "api_id": {
-                  "type": "integer"
-                },
-                "box_cover": {
-                  "type": "string"
-                },
-                "platforms": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "genres": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "release_date": {
-                  "type": "string"
-                },
-                "background_image": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "game_conditions": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "game": {
-                  "required": [
-                    "id",
-                    "title",
-                    "api_id"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "api_id": {
-                      "type": "integer"
-                    },
-                    "box_cover": {
-                      "type": "string"
-                    },
-                    "platforms": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "genres": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "release_date": {
-                      "type": "string"
-                    },
-                    "background_image": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "condition": {
-                  "type": "string",
-                  "enum": [
-                    "MINT_SEALED",
-                    "VERY_NEW",
-                    "KINDA_USED",
-                    "PLAYABLE"
-                  ]
-                }
-              }
-            }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -8410,6 +7926,208 @@
           "$ref": "#/components/schemas/NewSell-games"
         }
       },
+      "Platforms": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "platform_name": {
+            "type": "string",
+            "enum": [
+              "PLAYSTATION",
+              "XBOX",
+              "NINTENDO"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewPlatforms": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "platform_name": {
+            "type": "string",
+            "enum": [
+              "PLAYSTATION",
+              "XBOX",
+              "NINTENDO"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Sell-games": {
+        "required": [
+          "id",
+          "price",
+          "remarks",
+          "negotiable",
+          "location"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "remarks": {
+            "type": "string"
+          },
+          "negotiable": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "long": {
+                "type": "number"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "game_details": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "game": {
+                  "required": [
+                    "id",
+                    "title",
+                    "api_id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "api_id": {
+                      "type": "integer"
+                    },
+                    "box_cover": {
+                      "type": "string"
+                    },
+                    "platforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "genres": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "release_date": {
+                      "type": "string"
+                    },
+                    "background_image": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "platform": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "platform_name": {
+                      "type": "string",
+                      "enum": [
+                        "PLAYSTATION",
+                        "XBOX",
+                        "NINTENDO"
+                      ]
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "condition": {
+                  "type": "string",
+                  "enum": [
+                    "MINT_SEALED",
+                    "VERY_NEW",
+                    "KINDA_USED",
+                    "PLAYABLE"
+                  ]
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "INACTIVE"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "Wish-list-games": {
         "required": [
           "id"
@@ -8462,20 +8180,50 @@
                 "type": "string"
               }
             }
+          },
+          "platform": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "platform_name": {
+                "type": "string",
+                "enum": [
+                  "PLAYSTATION",
+                  "XBOX",
+                  "NINTENDO"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
       "NewWish-list-games": {
-        "required": [
-          "title",
-          "api_id",
-          "box_cover",
-          "platforms",
-          "genres",
-          "release_date",
-          "background_image"
-        ],
         "properties": {
+          "required": [
+            "title",
+            "api_id",
+            "box_cover",
+            "platforms",
+            "genres",
+            "release_date",
+            "background_image"
+          ],
           "title": {
             "type": "string"
           },
@@ -8506,14 +8254,22 @@
           }
         }
       },
-      "wish-list-games-list": {
+      "wish-list-games": {
         "properties": {
-          "list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NewWish-list-games"
-            }
+          "game": {
+            "$ref": "#/components/schemas/NewWish-list-games"
+          },
+          "platform": {
+            "type": "integer"
           }
+        }
+      },
+      "wish-list-games-list": {
+        "type": "array",
+        "items": {
+          "minItems": 1,
+          "type": "object",
+          "$ref": "#/components/schemas/wish-list-games"
         }
       },
       "UsersPermissionsRole": {

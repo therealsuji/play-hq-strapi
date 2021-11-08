@@ -899,16 +899,6 @@
               "remarks": {
                 "type": "string"
               },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "COMPLETED",
-                  "CANCELLED",
-                  "CONFIRMED",
-                  "NOT_COMPLETE",
-                  "DISPATCHED"
-                ]
-              },
               "negotiable": {
                 "type": "boolean"
               },
@@ -918,14 +908,15 @@
               "user": {
                 "type": "string"
               },
-              "games": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "game_conditions": {
+              "game_details": {
                 "type": "component"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ACTIVE",
+                  "INACTIVE"
+                ]
               },
               "published_at": {
                 "type": "string"

@@ -25,6 +25,7 @@
       ]
     },
     "user": {
+      "private": true,
       "plugin": "users-permissions",
       "model": "user"
     }

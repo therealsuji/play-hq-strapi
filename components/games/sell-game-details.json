@@ -1,13 +1,16 @@
 {
-  "collectionName": "components_types_game_conditions",
+  "collectionName": "components_games_sell_game_details",
   "info": {
-    "name": "GameCondition",
-    "icon": "american-sign-language-interpreting"
+    "name": "SellGameDetails",
+    "icon": "archive"
   },
   "options": {},
   "attributes": {
     "game": {
       "model": "games"
+    },
+    "platform": {
+      "model": "platforms"
     },
     "condition": {
       "type": "enumeration",
