@@ -640,9 +640,6 @@
               "release_date": {
                 "type": "string"
               },
-              "background_image": {
-                "type": "string"
-              },
               "created_by": {
                 "type": "string"
               },
