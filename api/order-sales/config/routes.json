@@ -10,8 +10,16 @@
     },
     {
       "method": "GET",
-      "path": "/get-orders/:id",
-      "handler": "order-sales.getOrders",
+      "path": "/get-orders-for-sale/:id",
+      "handler": "order-sales.getOrdersForSale",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/get-order-details/:id",
+      "handler": "order-sales.getOrderDetails",
       "config": {
         "policies": []
       }
