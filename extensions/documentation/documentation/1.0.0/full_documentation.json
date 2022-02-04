@@ -7531,9 +7531,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           }
         }
       },
@@ -7567,9 +7564,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -7661,9 +7655,6 @@
               "release_date": {
                 "type": "string"
               },
-              "background_image": {
-                "type": "string"
-              },
               "created_by": {
                 "type": "string"
               },
@@ -7705,16 +7696,15 @@
         }
       },
       "NewLibrary-games": {
+        "required": [
+          "title",
+          "api_id",
+          "box_cover",
+          "platforms",
+          "genres",
+          "release_date"
+        ],
         "properties": {
-          "required": [
-            "title",
-            "api_id",
-            "box_cover",
-            "platforms",
-            "genres",
-            "release_date",
-            "background_image"
-          ],
           "title": {
             "type": "string"
           },
@@ -7739,9 +7729,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           }
         }
       },
@@ -8137,9 +8124,6 @@
                     "release_date": {
                       "type": "string"
                     },
-                    "background_image": {
-                      "type": "string"
-                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -8245,9 +8229,6 @@
               "release_date": {
                 "type": "string"
               },
-              "background_image": {
-                "type": "string"
-              },
               "created_by": {
                 "type": "string"
               },
@@ -8289,16 +8270,15 @@
         }
       },
       "NewWish-list-games": {
+        "required": [
+          "title",
+          "api_id",
+          "box_cover",
+          "platforms",
+          "genres",
+          "release_date"
+        ],
         "properties": {
-          "required": [
-            "title",
-            "api_id",
-            "box_cover",
-            "platforms",
-            "genres",
-            "release_date",
-            "background_image"
-          ],
           "title": {
             "type": "string"
           },
@@ -8323,9 +8303,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           }
         }
       },

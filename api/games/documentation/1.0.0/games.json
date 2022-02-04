@@ -597,9 +597,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           }
         }
       },
@@ -633,9 +630,6 @@
           "release_date": {
             "type": "string",
             "format": "date"
-          },
-          "background_image": {
-            "type": "string"
           },
           "created_by": {
             "type": "string"
