@@ -15,6 +15,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/firebase/renew-token",
+      "handler": "firebase.renewToken",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
