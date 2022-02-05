@@ -30,10 +30,6 @@ module.exports = {
         await strapi.services["wish-list-games"].create({ game: game.id, platform: item.platform, user: user_id });
       }
       let result = await strapi.query("wish-list-games").find({ user: user_id });
-      result = result.map((item) => {
-        item.platform = item.platform.id;
-        return item;
-      });
       return sanitizeEntity(result, { model: strapi.models["wish-list-games"] });
     }
   },
