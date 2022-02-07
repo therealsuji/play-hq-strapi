@@ -22,7 +22,7 @@ async function getSellGamesFromPlatformAndGameId(
   offset
 ) {
   const knex = strapi.connections.default;
-  const sell_games = await knex("sell_games_components")
+  const query = knex("sell_games_components")
     .where(
       "sell_games_components.component_type",
       sell_game_details_model.collectionName
@@ -31,17 +31,22 @@ async function getSellGamesFromPlatformAndGameId(
       sell_game_details_model.collectionName,
       "sell_games_components.component_id",
       `${sell_game_details_model.collectionName}.id`
-    )
-    .where(`${sell_game_details_model.collectionName}.platform`, platformIds)
-    .where(`${sell_game_details_model.collectionName}.game`, gameIds)
-    .select(`sell_games_components.sell_game_id`)
-    .limit(limit)
-    .offset(offset);
+    );
+  if (platformIds.length) {
+    query.whereIn(
+      `${sell_game_details_model.collectionName}.platform`,
+      platformIds
+    );
+  }
+  query.whereIn(`${sell_game_details_model.collectionName}.game`, gameIds);
+  query.select(`sell_games_components.sell_game_id`);
+  query.limit(limit);
+  query.offset(offset);
+  const sell_games = await query;
   const sell_game_ids = sell_games.map((sell_game) => sell_game.sell_game_id);
   if (sell_game_ids.length == 0) {
     return [];
   }
-  return;
   const sale_games_data = await strapi.services["sell-games"].find({
     id: sell_game_ids,
   });
@@ -49,4 +54,4 @@ async function getSellGamesFromPlatformAndGameId(
   return sales;
 }
 
-module.exports = { formatSellGame };
+module.exports = { formatSellGame, getSellGamesFromPlatformAndGameId };

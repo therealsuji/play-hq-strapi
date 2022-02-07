@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "02/05/2022 1:24:25 PM"
+    "x-generation-date": "02/05/2022 2:42:47 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7866,54 +7866,6 @@
           "new_price": {
             "type": "number"
           },
-          "sell_game": {
-            "required": [
-              "id",
-              "price",
-              "remarks",
-              "negotiable",
-              "location"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "price": {
-                "type": "number"
-              },
-              "remarks": {
-                "type": "string"
-              },
-              "negotiable": {
-                "type": "boolean"
-              },
-              "location": {
-                "type": "component"
-              },
-              "user": {
-                "type": "string"
-              },
-              "game_details": {
-                "type": "component"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "ACTIVE",
-                  "INACTIVE"
-                ]
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -8237,10 +8189,6 @@
               "ACTIVE",
               "INACTIVE"
             ]
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },

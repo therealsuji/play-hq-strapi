@@ -949,54 +949,6 @@
           "new_price": {
             "type": "number"
           },
-          "sell_game": {
-            "required": [
-              "id",
-              "price",
-              "remarks",
-              "negotiable",
-              "location"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "price": {
-                "type": "number"
-              },
-              "remarks": {
-                "type": "string"
-              },
-              "negotiable": {
-                "type": "boolean"
-              },
-              "location": {
-                "type": "component"
-              },
-              "user": {
-                "type": "string"
-              },
-              "game_details": {
-                "type": "component"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "ACTIVE",
-                  "INACTIVE"
-                ]
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "status": {
             "type": "string",
             "enum": [
@@ -1020,9 +972,6 @@
         "properties": {
           "new_price": {
             "type": "number"
-          },
-          "sell_game": {
-            "type": "string"
           },
           "user": {
             "type": "string"

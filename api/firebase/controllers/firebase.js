@@ -85,26 +85,19 @@ module.exports = {
   },
 
   async renewToken(ctx) {
-    if (ctx.request && ctx.request.header && ctx.request.header.authorization) {
-      try {
-        const user_id = ctx.state.user.id;
+    const user_id = ctx.state.user.id;
 
-        const jwt = strapi.plugins["users-permissions"].services.jwt.issue({
-          id: user_id,
-        });
+    const jwt = strapi.plugins["users-permissions"].services.jwt.issue({
+      id: user_id,
+    });
 
-        let user = await strapi
-          .query("user", "users-permissions")
-          .findOne({ id: user_id });
-        user = sanitizeUser(user);
-        ctx.body = {
-          user,
-          jwt,
-        };
-      } catch (err) {
-        console.log(err)
-        return ctx.unauthorized();
-      }
-    }
+    let user = await strapi
+      .query("user", "users-permissions")
+      .findOne({ id: user_id });
+    user = sanitizeUser(user);
+    ctx.body = {
+      user,
+      jwt,
+    };
   },
 };
