@@ -173,4 +173,12 @@ module.exports = {
       return sanitizeEntity(sales, { model: strapi.models["sell-games"] });
     }
   },
+  async getMySales(ctx) {
+    const user_id = ctx.state.user.id;
+    let sales = await strapi.services["sell-games"].find({
+      user: user_id,
+    });
+    sales = sales.map((sale) => formatSellGame(sale));
+    return sanitizeEntity(sales, { model: strapi.models["sell-games"] });
+  },
 };

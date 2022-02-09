@@ -34,6 +34,14 @@
     },
     {
       "method": "GET",
+      "path": "/sell-games/my-sales",
+      "handler": "sell-games.getMySales",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/sell-games/:id",
       "handler": "sell-games.findOne",
       "config": {
