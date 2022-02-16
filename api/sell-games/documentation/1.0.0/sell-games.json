@@ -957,9 +957,6 @@
                         "NINTENDO"
                       ]
                     },
-                    "published_at": {
-                      "type": "string"
-                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -1100,9 +1097,6 @@
                         "XBOX",
                         "NINTENDO"
                       ]
-                    },
-                    "published_at": {
-                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"

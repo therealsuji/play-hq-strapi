@@ -6,9 +6,9 @@
     "description": ""
   },
   "options": {
-    "increments": true,
+    "increments": false,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

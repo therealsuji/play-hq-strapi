@@ -22,18 +22,15 @@ const isFirstRun = async () => {
 
 const createSeedData = async () => {
   const genresPromises = genres.map(({ ...rest }) => {
-    return strapi.services.genres.create({
-      ...rest,
-    });
+    return strapi.query('genres').model.forge({...rest}).save(null, {method: 'insert'});
   });
   const platformsPromises = platforms.map(({ ...rest }) => {
-    return strapi.services.platforms.create({
-      ...rest,
-    });
+    return strapi.query('platforms').model.forge({...rest}).save(null, {method: 'insert'});
   });
   await Promise.all(genresPromises);
   await Promise.all(platformsPromises);
 };
+
 const findPublicRole = async () => {
   const result = await strapi.query("role", "users-permissions").findOne({ type: "public" });
   return result;
