@@ -8,7 +8,7 @@ function formatSellGame(result) {
     return {
       game: sell_game.game,
       condition: sell_game.condition,
-      platform: sell_game.platform.id,
+      platform: sell_game.platform?.id,
     };
   });
   result.game_details = games;
@@ -40,8 +40,12 @@ async function getSellGamesFromPlatformAndGameId(
   }
   query.whereIn(`${sell_game_details_model.collectionName}.game`, gameIds);
   query.select(`sell_games_components.sell_game_id`);
-  query.limit(limit);
-  query.offset(offset);
+  if(limit) {
+    query.limit(limit);
+  }
+  if(offset) {
+    query.offset(offset);
+  }
   const sell_games = await query;
   const sell_game_ids = sell_games.map((sell_game) => sell_game.sell_game_id);
   if (sell_game_ids.length == 0) {
@@ -50,6 +54,7 @@ async function getSellGamesFromPlatformAndGameId(
   const sale_games_data = await strapi.services["sell-games"].find({
     id: sell_game_ids,
   });
+  console.log(sale_games_data)
   const sales = sale_games_data.map((sale) => formatSellGame(sale));
   return sales;
 }

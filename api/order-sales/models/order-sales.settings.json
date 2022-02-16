@@ -16,6 +16,9 @@
       "type": "float",
       "required": false
     },
+    "sell_game": {
+      "model": "sell-games"
+    },
     "user": {
       "private": true,
       "plugin": "users-permissions",
